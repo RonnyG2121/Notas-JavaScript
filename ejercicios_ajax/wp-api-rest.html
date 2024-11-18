@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumiendo la api rest de wordpress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/wp-api-rest.css">
+</head>
+
+<body>
+    <h1>Consumiendo la api rest de wordpress</h1>
+    <article id="sites" class="" site></article>
+    <section id="posts" class="post"></section>
+    <img class="loader" src="files/loader.svg" alt="Cargando..." role="alert">
+
+    <template id="post_template">
+        <article class="post">
+            <img class="post-image" src="" alt="">
+            <aside>
+                <h2 class="post-title"></h2>
+                <figure class="post-author"></figure>
+                <small class="post-date"></small>
+                <a class="post-link" target="_blank" rel="noopener noreferrer">Ver la publicación original</a>
+                <p class="post-excerpt"></p>
+                <div class="post-categories"></div>
+                <div class="post-tags"></div>
+                <details class="post-content">
+                    <summary>Ver contenido de la publicación</summary>
+                    <article></article>
+                </details>
+            </aside>
+        </article>
+        <hr>
+        <button id="btn_mas" class="none">Cargar más posts...</button>
+    </template>
+
+    <script src="app/wp-api-rest.js"></script>
+</body>
+
+</html>

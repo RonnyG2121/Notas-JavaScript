@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>envío de Formulario con api fetch</title>
+    <link rel="stylesheet" href="estilos/formulario_contacto.css">
+</head>
+<body>
+    <section id="s14" class="section" data-scroll-spy>
+        <h2>Validaciones de formularios</h2>
+        <form class="form-contacto">
+            <legend>Contáctanos aquí</legend>
+            <label for="id_nombre">Nombre</label>
+            <input type="text" name="nombre" id="id_nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                placeholder="Nombre" title="Este campo es requerido" required>
+                <label for="id_correo">Correo Electrónico</label>
+            <input type="email" name="correo" id="id_correo" placeholder="Correo electrónico" title="Este campo es requerido"
+                pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z])$" required>
+                <label for="id_asunto">Asunto</label>
+            <input type="text" name="asunto" id="id_asunto" placeholder="Asunto" title="Este campo es requerido" required>
+            <label for="id_comentario">Comentario</label>
+            <textarea data-patron="^.{1,500}$" name="comentario" id="id_comentario" cols="50" rows="5" placeholder="Comentario"
+                title="Máximo 500 caracteres. Este campo es requerido" required></textarea>
+            <input type="submit" id="id_enviar" value="enviar">
+            <div class="form-contacto-cargando none" role="alert">
+                <img src="files/loader.svg" alt="Cargando...">
+            </div>
+
+            <div class="form-contacto-respuesta none" role="alert">
+            </div>
+
+        </form>
+    </section>
+
+        <script src="app/formulario_contacto.js"></script>
+</body>
+</html>

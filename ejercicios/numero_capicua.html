@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número capicúa</title>
+
+<script>
+function capicua(num=0) {
+    let bandera = false;
+    let num_str = num.toString();
+    let resultado = num_str.split("").reverse().join("");
+    if(resultado === num_str) {
+        bandera = true;
+        console.log(`El número ${num_str}, es un número capicúa`);
+    }
+    else {
+        console.log(`El úmero ${num_str}, no es capicúa`)
+    }
+
+}
+
+capicua(161);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

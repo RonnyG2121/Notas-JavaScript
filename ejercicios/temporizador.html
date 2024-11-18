@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador</title>
+
+    <style>
+        #reloj {
+            font-size: 5em;
+            text-align: center;
+            margin: 1em;
+        }
+    </style>
+
+<script>
+    window.onload = function () {
+        fun_Cuenta_Atras("Jun 09 2023 21:45:40 GMT-0500", "reloj", "Booom");
+    }
+
+    function fun_Cuenta_Atras(fecha_final, elem, mensaje) {
+        var reloj = document.getElementById(elem);
+        var id_reloj = setInterval(function () {
+            var t = despliega_Reloj(fecha_final);
+            reloj.innerHTML = t.diasRestantes + ":" + t.horasRestantes + ":" + t.minutosRestantes + ":" + t.segundosRestantes;
+            if (t.tiempoRestante <= 1) {
+                clearInterval(id_reloj);
+                reloj.innerHTML = mensaje;
+            }
+
+        }, 1000);
+    }
+
+    function despliega_Reloj(fecha_final) {
+        var ahora = new Date();
+        var tiempoRestante = (new Date(fecha_final) - ahora + 1000) / 1000;
+        var segundosRestantes = ("0" + Math.floor(tiempoRestante % 60)).slice(-2);
+        var minutosRestantes = ("0" + Math.floor(tiempoRestante / 60 % 60)).slice(-2);
+        var horasRestantes = ('0' + Math.floor(tiempoRestante / 3600 % 24)).slice(-2);
+        var diasRestantes = Math.floor(tiempoRestante / (3600 * 24));
+        return {
+            tiempoRestante: tiempoRestante,
+            segundosRestantes: segundosRestantes,
+            minutosRestantes: minutosRestantes,
+            horasRestantes: horasRestantes,
+            diasRestantes: diasRestantes
+        };
+    }
+</script>
+
+</head>
+
+<body>
+    <div id="reloj">
+    </div>
+</body>
+
+</html>

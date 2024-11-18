@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proxy básico</title>
+	<meta charset="utf-8">
+	<script>
+		const target = function(nombre, apellidos){
+			console.log("Mi nombre es ",nombre,apellidos);
+		}
+
+		const handler = {
+			apply: function(target, valor, args){
+				console.log(`Se ha llamado la función ${target.name} con los parámetros ${args}`);
+				return target(...args);
+			}
+		}
+
+		var p = new Proxy(target, handler);
+		p("Pedro", "Picapiedra"); 
+
+		var p2 = new Proxy(target, handler)
+		p2("Ronny", "Gonzalez");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

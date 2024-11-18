@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos | onmouseover onmouseout</title>
+	<meta charset="utf-8">
+	<script>
+		var atenea, miBody;
+		window.onload = function(){
+			atenea = document.getElementById("atenea");
+			miBody = document.getElementsByTagName("body");
+
+			atenea.onclick = function(){
+				alert("Atenea, diosa de la sabiduría");
+			}
+
+			atenea.onmouseover = function(){
+				miBody[0].setAttribute("class","rojo");
+			}
+
+			atenea.onmouseout = function(){
+				miBody[0].setAttribute("class","blanco");
+			}
+		}
+	</script>
+	<style>
+		.rojo{ background-color: red; }
+		.blanco{ background-color: white; }
+	</style>
+</head>
+<body>
+<img src="imagenes/atenea.jpg" id="atenea"/>
+</body>
+</html>

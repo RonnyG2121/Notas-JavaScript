@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería reactiva</title>
+</head>
+
+<body>
+    <h1>Librería reactiva con componentes y estados</h1>
+    <form id="form_tareas">
+        <input type="text" id="todotask" placeholder="Tareas por hacer">
+        <input type="submit" value="Agregar">
+
+        <h2>Lista de tareas</h2>
+        <ul id="lista_tareas"></ul>
+
+        <script src="Components.js"></script>
+
+        <script>
+            const d = document,
+                input = d.getElementById("todotask"),
+                componente = new Components({
+                    elemento: "#lista_tareas",
+                    data: {
+                        listaTareas: []
+                    },
+                    template: function (propiedades) {
+                        if (propiedades.listaTareas.length < 1) {
+                            return `<p>La listta de tareas está vacía.</p>`
+                        } else {
+                            let tareasPorHacer = propiedades.listaTareas.map((item) => {
+                                return `<li>${item}</li>`;
+                            }).join("");
+                            return tareasPorHacer;
+                        }
+                    }
+                });
+
+
+            d.addEventListener("DOMContentLoaded", componente.render);
+
+            //Estableciendo valores por defecto al State
+            componente.setState({
+                listaTareas: ["Tarea 1", "Tarea 2", "Tarea 3"]
+            });
+
+            d.addEventListener("submit", (ev) => {
+                if (!ev.target.matches("#form_tareas")) {
+                    return false;
+                } else {
+                    ev.preventDefault();
+                    if (!input) return;
+
+                    //Actualizar el estado en la interfaz
+                    //estado.listaTareas.unshift(inputk.value);
+                    //render();
+
+                    //Actualizar el State de forma reactiva
+                    const lastState = componente.getState();
+                    lastState.listaTareas.push(input.value);
+                    componente.setState({ listaTareas: lastState.listaTareas });
+
+                    input.value = "";
+                    input.focus();
+                }
+            })
+        </script>
+</body>
+
+</html>
+</form>d-grid

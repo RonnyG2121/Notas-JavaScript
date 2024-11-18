@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM | Crear nodos</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		//creamos un arreglo
+		var textos = new Array();
+		textos.push("Afrodita nació de la espuma del mar...");
+		textos.push("Una pelota de golf puede ser más letal que una bala...");
+		textos.push("Las abejas tienen emociones...");
+		textos.push("El arte es bueno para la salud...");
+		textos.push("Las papas disminuyen la presión arterial...");
+		textos.push("JavaScript es el lenguaje más utilizado en el mundo...");
+		//creamos un número aleatorio
+		var num = Math.floor(Math.random()*textos.length);
+
+		//1) Creamo un nodo
+		var titulo = document.createElement("h1");
+		var texto = document.createElement("p");
+
+		//3) Añadimos a la lista de visualizacion del documento
+		document.getElementById("sabias").appendChild(titulo);
+		document.getElementById("sabias").appendChild(texto);
+
+		//2) poblar contenidos
+		titulo.innerHTML = "¿Sabias que...?";
+		texto.innerHTML = textos[num];
+
+		
+
+	}
+	</script>
+</head>
+<body>
+<div id="sabias"></div>
+</body>
+</html>

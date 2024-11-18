@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM | Location</title>
+	<meta charset="utf-8">
+	<script>
+		document.write("URL: "+window.location.href+"<br>");
+		document.write("Hostname: "+location.hostname+"<br>");
+		document.write("Ruta: "+location.pathname+"<br>");
+		document.write("Protocolo: "+location.protocol+"<br>");
+		document.write("Puerto: "+location.port+"<br>");
+		function salta(){
+			location.assign("http://www.google.com");
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="Ir a google" onclick="salta()" />
+</body>
+</html>

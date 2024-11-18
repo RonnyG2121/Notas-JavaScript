@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON 04</title>
+<script>
+function leeAlumnos(cali){
+	var xmlhttp = new XMLHttpRequest();
+	var url = "alumnosJSON.php?q="+cali;
+	
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			var alumnos = JSON.parse(xmlhttp.responseText);
+			despliegaDatos(alumnos, cali);
+		}
+	}
+	
+	xmlhttp.open("GET",url,true);
+	xmlhttp.send();
+}
+function  despliegaDatos(arreglo, cali){
+	document.getElementById("alumnos").innerHTML="Hay ("+arreglo.length+") alumnos con la calificación "+cali;
+	var cadena = "";
+	var i;
+	for(i=0; i<arreglo.length; i++){
+		cadena += arreglo[i].nombre+", calificacion anual: "+arreglo[i].promedio+"<br>";
+	}
+	document.getElementById("salida").innerHTML = cadena;
+}
+
+</script>
+</head>
+
+<body>
+<button onClick="leeAlumnos(10);">10</button>
+<button onClick="leeAlumnos(9);">9</button>
+<button onClick="leeAlumnos(8);">8</button>
+<button onClick="leeAlumnos(7);">7</button>
+<button onClick="leeAlumnos(6);">6</button>
+<button onClick="leeAlumnos(5);">5</button>
+<p id="alumnos"></p>
+<div id="salida"></div>
+</body>
+</html>

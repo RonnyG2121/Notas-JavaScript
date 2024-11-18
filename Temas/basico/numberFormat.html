@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NumberFormat</title>
+	<script>
+		var numero = 123456.789;
+		document.write(new Intl.NumberFormat("en").format(numero),"<br>");
+		document.write(new Intl.NumberFormat("es").format(numero),"<br>");
+		document.write(new Intl.NumberFormat("es-mx").format(numero),"<br>");
+		document.write(new Intl.NumberFormat("es-mx",{style:'currency', currency: 'MNX'}).format(numero),"<br>");
+		document.write(new Intl.NumberFormat("es",{style:'currency', currency: 'EUR'}).format(numero),"<br>");
+		document.write(new Intl.NumberFormat("ja-JP",{style:'currency', currency: 'JPY'}).format(numero),"<br>");
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

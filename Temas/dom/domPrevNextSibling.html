@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Document Object Model</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		var medio = document.getElementById("medio");
+		do{
+			console.log(medio.nodeName, medio.innerHTML);
+			medio = medio.nextElementSibling;
+		}while(medio)
+		
+	}
+	</script>
+</head>
+<body>
+<h1>Esta es una página HTML</h1>
+<p>Las siglas DOM significan:</p>
+<ul>
+	<li>Document</li>
+	<li id="medio">Object</li>
+	algo de texto
+	<li>Model</li>
+	mas texto
+</ul>
+</body>
+</html>

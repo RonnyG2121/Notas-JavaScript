@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Burbujeo</title>
+	<script>
+		window.onload = function() {
+			document.getElementById("caja1").addEventListener("click",function(event) {
+					console.log("clic sobre la caja 1",event.target)
+			},{capture:true});
+
+			document.getElementById("caja2").addEventListener("click",function(event) {
+					console.log("clic sobre la caja 2",event.target)
+			},{capture:true});
+
+			document.getElementById("caja3").addEventListener("click",function(event) {
+					console.log("clic sobre la caja 3", event.target);
+					//event.stopPropagation();
+					//event.stopImmediatePropagation();
+			},{capture:true});
+
+			
+		}
+	</script>
+	<style>
+		#caja1{
+			width:400px;
+			height: 400px;
+			background:orange;
+		}
+		#caja2{
+			width:300px;
+			height: 300px;
+			background:yellow;
+		}
+		#caja3{
+			width:200px;
+			height: 200px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+<div id="caja1">
+	<p>Caja 1</p>
+	<div id="caja2">
+		<p>Caja 2</p>
+		<div id="caja3">
+			<p>Caja 3</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

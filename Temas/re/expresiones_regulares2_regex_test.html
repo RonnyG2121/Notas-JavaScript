@@ -1,0 +1,16 @@
+<!doctype html>
+<html>  
+  <head>  
+    <meta charset="utf-8">  
+    <script>
+      // Buscando la letra e en una cadena. sin importar que esté en minúsculas o mayúsculas
+      var re = /e/gi;
+      /* usando el método test para pasar la cadena y que nos diga en consola si se encontró el término buscado. devuelve true o false*/
+      console.log(re.test("En el agua clara, que brota en la fuente"));
+      // Viéndo la última posición en la que se encuentra el índice luego de la última coicidencia encontrada
+      console.log(re.lastIndex);
+    </script>  
+  </head>  
+  <body>
+  </body>  
+</html>

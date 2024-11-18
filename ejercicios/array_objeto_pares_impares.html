@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números pares he impares en un objeto con 2 arrays</title>
+<script>
+const pareImparArray = (array = []) => {
+    let objeto = {
+        pares: [],
+        impares: []
+    };
+    
+    array.forEach((i) => {
+        if(i %2 === 0) {
+            objeto.pares.push(i);
+        }
+        else {
+            objeto.impares.push(i);
+        }
+    });
+    return `Pares: ${objeto.pares}. Impares: ${objeto.impares}`;
+}
+
+console.log(pareImparArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

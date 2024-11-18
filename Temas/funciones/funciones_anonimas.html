@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <title>Funciones anónimas</title>
+  <script>
+    var frutas = ["Pera","Limón","Manzana","Uva"];
+
+    frutas.forEach(function(fruta,index){
+      console.log(fruta);
+      if(this==fruta){
+        console.log("Mi fruta favorita es: ",fruta,index);
+      }
+    },"Manzana");
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promesa con Ajax</title>
+	<meta charset="utf-8">
+	<script>
+	function leeArchivo(archivo){
+		return new Promise( function (responder,rechazar){
+			var req = new XMLHttpRequest();
+			req.open("GET",archivo);
+			req.send();
+
+			req.onload = function() {
+				//verificamos lectura
+				if (req.status==200) {
+					responder(req.response);
+				} else {
+					rechazar(req.statusText);
+				}
+			}
+
+			req.onerror = function(){
+				rechazar("Error en la conexión");
+			}
+		});
+	}
+
+	leeArchivo("alumnos123.json").then(respuesta=>{
+		console.log("Respuesta",respuesta);
+	}).catch(error=>{
+		console.log("Error: ",error);
+	});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

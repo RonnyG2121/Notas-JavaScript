@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de canciones</title>
+    <link rel="stylesheet" href="estilos/api_canciones.css">
+</head>
+<body>
+    <h1>Buscador de canciones</h1>
+    <form id="sound_search">
+        <label for="id_artista">Artista</label>
+        <input type="text" name="artista" id="id_artista" placeholder="Artista">
+        <br>
+        <label for="id_cancion">Canción</label>
+        <input type="text" name="cancion" id="id_cancion" placeholder="Canción">
+        <br>
+        <input type="submit" value="enviar" id="id_enviar">
+    </form>
+
+    <div class="loader" role="alert"><img src="files/loader.svg" alt="Imagen cargando..."></div>
+
+    <aside class="error"></aside>
+
+    <main>
+        <article class="artist">
+            <h2></h2>
+            
+        </article>
+
+        <article class="sound">
+            <h2></h2>
+
+        </article>
+    </main>
+
+    <script src="app/api_canciones.js"></script>
+</body>
+</html>

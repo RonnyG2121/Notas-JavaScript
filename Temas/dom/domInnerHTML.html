@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Document Object Model</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		//recuperamos la informacion de un nodo
+		var d = document.querySelector(".rojo").innerHTML;
+		console.log("El valor del nodo rojo es: ",d);
+		//modificando el contenido
+		document.querySelector(".rojo").innerHTML = "<b>"+d+"</b>";
+		//eliminar el contenido
+		document.querySelector(".rojo").innerHTML = "";
+
+	}	
+	</script>
+	<style>
+		.rojo{color:red;}
+
+	</style>
+</head>
+<body>
+<h1>Esta es una página HTML</h1>
+<p>Las siglas DOM significan:</p>
+<ul>
+	<li class="rojo">Document</li>
+	<li>Object</li>
+	<li>Model</li>
+</ul>
+</body>
+</html>

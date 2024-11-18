@@ -1,0 +1,20 @@
+{
+  "name": "contador_visitas",
+  "version": "0.0.1",
+  "description": "esto es un contador de visitas para practivar con la librería socket.io y aprender del tema en cuestión",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "js",
+    "contador",
+    "node.js"
+  ],
+  "author": "RonnyG2121 <yordemblo@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  }
+}

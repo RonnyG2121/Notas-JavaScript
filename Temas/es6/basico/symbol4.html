@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Symbol</title>
+	<script>
+		const foo = Symbol("este simbolo es foooo");
+		const bar = Symbol("este simbolo es bar bar bar");
+		let obj = {};
+		obj[foo] = "foo";
+		obj[bar] = "bar";
+		console.log(JSON.stringify(obj)); // {}
+		console.log(Object.keys(obj)); // []
+		console.log(Object.getOwnPropertyNames(obj)); // []
+		console.log(Object.getOwnPropertySymbols(obj)); // [ foo, bar ]
+	</script>
+<style>
+</style>
+</head>
+<body>
+</body>
+</html>

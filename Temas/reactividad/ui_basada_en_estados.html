@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI basada en estados</title>
+</head>
+
+<body>
+    <h1>UI basada en estados para la reactividad</h1>
+    <form id="form_tareas">
+        <input type="text" id="todotask" placeholder="Tareas por hacer">
+        <input type="submit" value="Agregar">
+
+        <h2>Lista de tareas</h2>
+        <ul id="lista_tareas"></ul>
+
+        <script>
+            const d = document,
+                input = d.getElementById("todotask"),
+                ul = d.getElementById("lista_tareas"),
+                estado = {
+                    listaTareas: [],
+                },
+
+                template = () => {
+                    if (estado.listaTareas.length < 1) {
+                        return `<p>La listta de tareas está vacía.</p>`
+                    } else {
+                        let tareasPorHacer = estado.listaTareas.map((item) => {
+                            return `<li>${item}</li>`;
+                        }).join("");
+                        return tareasPorHacer;
+                    }
+                }
+
+            const render = () => {
+                console.info(estado);
+
+                if (!ul) {
+                    return;
+                } else {
+                    ul.innerHTML = template();
+                }
+            }
+
+            d.addEventListener("DOMContentLoaded", render);
+
+            d.addEventListener("submit", (ev) => {
+                if (!ev.target.matches("#form_tareas")) {
+                    return false;
+                } else {
+                    ev.preventDefault();
+                    if (!input) return;
+
+                    //Actualizar el estado en la interfaz
+                    estado.listaTareas.unshift(inputk.value);
+                    render();
+                    input.value = "";
+                    input.focus();
+                }
+            })
+        </script>
+</body>
+
+</html>
+</form>d-grid

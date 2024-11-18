@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Adivina el numero mágico</title>
+<script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/2676BF4A-F116-E742-82F1-BB648196B65A/main.js" charset="UTF-8"></script><script>
+//Revisar con chrome
+var numero = Math.floor(Math.random()*100)+1;
+console.log(numero);
+var intentos = 1;
+do{
+	miNumero = prompt("Adivina el número mágico entre 1 y 100");
+	if(numero>miNumero){
+		document.write(intentos+") El número "+miNumero+" es menor al número buscado<br>");
+	} else if(numero<miNumero){
+		document.write(intentos+") El número "+miNumero+" es mayor al número buscado<br>");
+	} else {
+		document.write(intentos+") El número mágico es "+numero+" felicidades<br>");
+		break;
+	}
+	intentos++;
+	if(intentos>6){
+		document.write("Lo sentimos, pero eres muy malo para adivinar. El número mágico era: "+numero);
+		break;
+	}
+} while(true)
+</script>
+</head>
+
+<body>
+</body>
+</html>

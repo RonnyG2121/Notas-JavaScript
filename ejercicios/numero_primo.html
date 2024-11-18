@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra el número primo</title>
+
+</head>
+
+<body>
+    <p id="id_primo"></p>
+    <script>
+        function primo(numero = 0) {
+            let id_primo = document.getElementById("id_primo");
+
+            if (numero <= 1) {
+                console.log(`El número ${numero}, no es primo`);
+                return false;
+            }
+            for (let i = 2; i < numero; i++) {
+                if (numero % i === 0) {
+                    console.log(`El número ${numero}, no es primo`);
+                    break;
+                    return false;
+                }
+                else {
+                    console.log(`El número ${numero}, es un número primo`);
+                    id_primo.innerHTML = `El número ${numero}, es un número primo`;
+                    return true;
+                }
+            }
+        }
+
+        primo(7);
+    </script>
+
+</body>
+
+</html>

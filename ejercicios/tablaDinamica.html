@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tabla dinámica</title>
+    <script>
+        window.onload = function() {
+            /* Este código pretende crear una tabla dinámica. para ello se va a crear un array y se va a rellenar con los campos de manera manual
+            Luego, se se va a obtener el id de la tabla para luego crear un tbody
+            seguidamente, se recorre el array y se le asigna un tr, y un td a cada campo
+            para finalizar se le añade todo esto al tbody
+            Todo esto al cargar la página
+            */
+            let alumnos = new Array(5);
+            alumnos[0] = {id:1, nombre:"Pedro Picapiedra", cali:7};
+            alumnos[1] = {id:2, nombre:"Pablo Mármol", cali:8};
+            alumnos[2] = {id:3, nombre:"James Bond", cali:9};
+            alumnos[3] = {id:4, nombre:"Peter Parker", cali:9};
+            alumnos[4] = {id:5, nombre:"Diana Spencer", cali:10};
+
+            let tabla = document.getElementById("alumnos");
+            let registros = document.createElement("tbody");
+
+            alumnos.forEach(a =>{
+                let r = document.createElement("tr");
+
+                let td = document.createElement("td");
+                td.innerText = a.id;
+                r.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = a.nombre;
+                r.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = a.cali;
+                r.appendChild(td);
+
+                registros.appendChild(r);
+            });
+
+            tabla.appendChild(registros);
+        }
+    </script>
+</head>
+<body>
+    <table id="alumnos" border="1">
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Calificación</th>
+        </tr>
+    </table>
+
+</body>
+</html>

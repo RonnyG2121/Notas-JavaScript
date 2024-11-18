@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de multiplicación del 2 al 12 usando for</title>
+
+<script>
+var multiplo = 0;
+var valor = prompt("Ingrese el múltiplo de la tabla");
+var contador = 0;
+
+for(tabla = 1; tabla<= 12; tabla++) {
+    multiplo = valor * tabla;
+    contador = contador + tabla;
+    document.write(valor + " por " + tabla + ": " + multiplo + ", ");
+    document.write("Cntador acumulado" + contador + ".\n ");
+}
+document.write("Total acumulado: " + contador);
+
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

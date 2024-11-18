@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promesas Race</title>
+	<meta charset="utf-8">
+	<script>
+		let p1 = new Promise((resolver, rechazar)=>{
+			setTimeout(()=>{
+				console.log("promesa 1");
+				resolver("uno");
+			}, 500);
+		});
+
+		let p2 = new Promise((resolver, rechazar)=>{
+			setTimeout(()=>{
+				console.log("promesa 2");
+				resolver("dos");
+			}, 1100);
+		});
+
+		Promise.race([p1,p2])
+		.then((valor)=>{
+			console.log(valor);
+		}) .catch((valor) => {
+			console.error(valor);
+		});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

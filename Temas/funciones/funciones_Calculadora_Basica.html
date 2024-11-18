@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+    // Creando calculadora básica con funciones
+    function Suma(num1, num2){
+    num1 = parseInt(prompt("Ingresa el primer valor"));
+    num2 = parseInt(prompt("Ingresa el segundo valor"));
+    var resultado = num1 + num2;
+    alert("Resultado de la operación" + resultado);
+    }
+
+function Resta(num1, num2){
+    num1 = parseInt(prompt("Ingresa el primer valor"));
+    num2 = parseInt(prompt("Ingresa el segundo valor"));
+    var resultado = num1 - num2;
+    alert("Resultado de la operación" + resultado);
+    }
+function Multiplicacion(num1, num2){
+    num1 = parseFloat(prompt("Ingresa el primer valor"));
+    num2 = parseFloat(prompt("Ingresa el segundo valor"));
+    var resultado = num1 * num2;
+    alert("Resultado de la operación" + resultado);
+    }
+function Division(num1, num2){
+    num1 = parseFloat(prompt("Ingresa el primer valor"));
+    num2 = parseFloat(prompt("Ingresa el segundo valor"));
+    var resultado = num1 / num2;
+    alert("Resultado de la operación" + resultado);
+    }
+
+do {
+    var linea = prompt("Ingrese una operación");
+if(linea == "suma") {
+    Suma();
+    break;
+}
+else if(linea == "resta") {
+    Resta();
+    break;
+}
+else if(linea == "multiplicación" || linea == "multiplicacion") {
+    Multiplicacion();
+    break;
+}
+else if(linea == "division" || linea == "división") {
+    Division();
+    break;
+}
+
+else{
+    alert("Ingrese una operación válida");
+}
+}while(linea != "salir");
+
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

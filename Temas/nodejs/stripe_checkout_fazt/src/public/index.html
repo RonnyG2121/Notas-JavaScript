@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda con Stripe</title>
+</head>
+<body>
+    <h1>Lista de productos</h1>
+    <div></div>
+    <div>
+        <button id="btn_pagar">Pagar</button>
+    </div>
+
+    <script>
+const pagar = document.getElementById("btn_pagar");
+
+pagar.addEventListener("click", async (ev) => {
+    await fetch("http://localhost:3000/create-checkout-session",
+    {
+        method: "POST",
+        headers: {
+            "content-type": "aplication/json"
+        },
+        body: JSON.stringify({
+            amount: 1000,
+            currency: "eur",
+            paymentMethodType: "card",
+            paymentMethod: "pm_card_visa",
+            confirm: true
+        })
+    })
+
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            return Promise.reject(res);
+        }
+    })
+
+    .then((jsonRes) => {
+        window.location.href = jsonRes.url;
+    })
+
+    .catch((err) => {
+        console.error(err);
+    });
+
+});
+    </script>
+</body>
+</html>

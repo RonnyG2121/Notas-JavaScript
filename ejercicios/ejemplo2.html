@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Jugando con variables</title>
+<link rel="stylesheet" href="../css/micss2.css">
+
+</head>
+
+<body>
+<div class="contenedor">
+<div class="header">
+	<p class="logo">Curso JavaScript Píldoras Informáticas</p>
+</div>
+<div class="contenido">
+	<div class="principal">
+<h1>Jugando con las variables</h1>
+
+<!--Código javascript-->
+<script>
+var nombre = prompt("Ingresa tu nombre");
+var apellido = prompt("Ingresa tu apellido");
+var edad = parseInt(prompt("Ingresa tu edad"));
+var restaAños = parseInt(prompt("¿cuantos años deseas restarte?"));
+edad-= restaAños;
+
+
+// mostrando la información de las variables en la página
+document.write("<p>" + " " + nombre + " " + apellido + " " + "Y tienes: " + edad + "</p>");
+
+
+</script>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

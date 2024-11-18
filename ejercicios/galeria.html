@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Galeria</title>
+	<style>
+		body{
+			width: 600px;
+			text-align: center;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		let idGaleria = null;
+		let foto = 1;
+		let numFotos = 6;
+		window.onload = () =>{
+			idGaleria = setInterval(cambiarFoto,2500);
+		}
+		const cambiarFoto = () => {
+			foto = Math.floor(Math.random()*numFotos)+1;
+			if(foto>numFotos) foto = 1;
+			document.images["foto"].src = `imagenes/fondos/fondo${foto}.jpg`;
+		}
+	</script>
+</head>
+<body>
+	<h1>Arquitectura antigua Grecia</h1>
+	<img src="imagenes/fondos/fondo1.jpg" id="foto" width="600">
+
+</body>
+</html>

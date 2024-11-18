@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM | Manejo de tiempo</title>
+	<meta charset="utf-8">
+	<script>
+	var llave = setInterval(reloj,1000);
+	function reloj(){
+		var d = new Date();
+		document.getElementById("salida").innerHTML = d.toLocaleTimeString();
+	}
+	</script>
+</head>
+<body>
+<p id="salida"></p>
+<button onclick="clearInterval(llave);">Detener</button>
+</body>
+</html>

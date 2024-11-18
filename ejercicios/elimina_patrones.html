@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminando patrones</title>
+<script>
+function eliminaSTR(texto="", patron="") {
+    //let replace = /xyz/gi
+    let cadenaRemplazada = texto.replaceAll(patron, '', "gi");
+    console.log(cadenaRemplazada);
+}
+
+eliminaSTR("xyz1 xyz2 xyz3 xyz4 y xyz5", "xyz");
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM | cookies</title>
+	<meta charset="utf-8">
+	<script>
+	function leeGalleta(galleta){
+		var usuario = galleta +"=";
+		var galletaLimpia = decodeURIComponent(document.cookie);
+		var ca = galletaLimpia.split(";");
+		for (var i = 0; i < ca.length; i++) {
+			c = ca[i];
+			while(c.charAt(0)==" "){
+				c = c.substring(1);
+			}
+			if(c.indexOf(usuario)==0){
+				return c.substring(usuario.length, c.length);
+			}
+			return "";
+		}
+	}
+	function guardaGalleta(nombreGalleta, valorGalleta, dias){
+		console.log(nombreGalleta, valorGalleta, dias);
+		var d = new Date();
+		d.setTime(d.getTime()+(dias*24*60*60*1000));
+		var expira = "expires="+d.toGMTString();
+		var galleta = nombreGalleta+"="+valorGalleta+";"+expira+";path=/";
+		console.log(galleta);
+		document.cookie = galleta;
+	}
+	window.onload = function(){
+		var usuario = leeGalleta("usuario");
+		if (usuario=="") {
+			usuario = prompt("¿Cuál es tu nombre?");
+			if (usuario!="" && usuario!=null) {
+				guardaGalleta("usuario",usuario,3);
+			}
+		} else {
+			alert("Bienvenido "+usuario+" a nuestra página");
+		}
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

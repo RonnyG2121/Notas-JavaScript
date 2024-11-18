@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Funciones asíncronas y promesas</title>
+	<meta charset="utf-8">
+	<script>
+		const promesa1 = new Promise((resolve, reject)=>{
+			setTimeout(resolve,1000, Math.floor(Math.random()*10)+1);
+		});
+
+		async function llamaPromesa() {
+			let valor = await promesa1;
+			return valor * Math.floor(Math.random()*10)+1;
+		}
+
+		async function llamaFuncionAsync() {
+			let valor = await llamaPromesa();
+			return valor * Math.floor(Math.random()*10)+1;
+		}
+
+		llamaFuncionAsync().then(resultado=>{
+			console.log("Resultado:",resultado);
+		}).catch((error) => {
+			console.log(error)
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

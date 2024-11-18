@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+figure.estilo-comidas {
+    background-color: aquamarine;
+    color: greenyellow;
+    font-size: 125%;
+    text-align: center;
+    cursor: pointer;
+    
+}

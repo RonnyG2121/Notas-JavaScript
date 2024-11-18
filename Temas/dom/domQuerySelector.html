@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Document Object Model | QuerySelector()</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		//seleccionamos por clase
+		var rojos = document.querySelectorAll(".rojo");
+		console.log("Tenemos "+rojos.length+" elementos rojos");
+
+		//seleccionamos por identificador
+		var amarillos = document.querySelectorAll("#amarillo");
+		console.log("Tenemos "+amarillos.length+" elementos amarillos");
+
+		//seleccionamos por atributo
+		var verdes = document.querySelectorAll("p[class]");
+		console.log("Tenemos "+verdes.length+" elementos verdes");
+
+		//seleccionamos por etiqueta
+		var parrafos = document.querySelectorAll("p");
+		console.log("Tenemos "+parrafos.length+" párrafos");
+
+		//seleccionamos por clase ficticia
+		var noexiste = document.querySelectorAll(".noexiste");
+		console.log("Tenemos "+noexiste.length+" elementos de la clase 'noexiste'");
+
+	}	
+
+
+	</script>
+	<style>
+		h1{color:blue;}
+		.rojo{ color:red; }
+		.verde{ color:green; }
+		#amarillo{ color:yellow; }
+	</style>
+</head>
+<body>
+<h1>Esta es una página HTML</h1>
+<p class="verde">Las siglas DOM significan:</p>
+<p>Este es otro párrafo</p>
+<ul id="amarillo">
+	<li class="rojo">Document</li>
+	<li>Object</li>
+	<li class="rojo noexiste">Model</li>
+</ul>
+</body>
+</html>

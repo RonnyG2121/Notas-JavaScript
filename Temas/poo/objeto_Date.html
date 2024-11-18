@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objeto | Date</title>
+	<meta charset="utf-8">
+	<script>
+		var dias = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+		//
+		var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+		var hoy = new Date();
+		var dia = hoy.getDay();
+		var diaMes = hoy.getDate();
+		var mes = hoy.getMonth();
+		var anio = hoy.getFullYear();
+		var hora = hoy.getHours();
+		var minutos = hoy.getMinutes();
+		var sec = hoy.getSeconds();
+		var mil = hoy.getMilliseconds();
+
+		document.write("Hoy es el día "+diaMes+" de "+meses[mes]+" de "+anio+" y es "+dias[dia]+" y son las "+hora+":"+minutos+":"+sec+" ("+mil+") mil"); 
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

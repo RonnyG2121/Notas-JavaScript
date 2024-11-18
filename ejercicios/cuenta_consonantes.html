@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando el número de  vocales </title>
+<script>
+const cuentaVC = (text = "") => {
+    let numVocales = 0;
+    let numConsonantes = 0;
+    for(let i = 0; i <text.toLowerCase().length; i++) {
+        if(text[i].match(/[aeiouáéíóúü]/gi)) {
+            numVocales++;
+        }
+        else if( text[i].match(/[bcdfghjklmnñpqrstvwxyz]/gi)) {
+            numConsonantes++;
+        }
+    }
+    return `Frase: ${text}. Número de vocales: ${numVocales}. número de consonantes: ${numConsonantes}`;
+}
+
+console.log(cuentaVC("Hola mundo"));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

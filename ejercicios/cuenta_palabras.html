@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta palabras</title>
+<script>
+function contador(text="", palabraRepetida) {
+    let contador = 0;
+    const arr = text.split(" ");
+    for(let i = 0; i < arr.length; i ++) {
+        if(arr[i] === palabraRepetida) {
+            contador++;
+        }
+    }
+    if(contador > 0) {
+        return `La palabra ${palabraRepetida}, se repite ${contador} veces.`;
+    }
+        else {
+            return "Esta palabra no se repite";
+        }
+
+}
+
+console.log(contador("hola mundo saludos mundo", "mundo"));
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Visitas</title>
+</head>
+
+<body>
+    <h1>Contador de Visitas</h1>
+    <p>Conexiones activas: <span id="connections">0</span></p>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        (
+            () => {
+                const info = {
+                    navegador: navigator.userAgent};
+
+                const socket = io();
+
+                // Actualiza el contador de conexiones
+                socket.on('connectionsUpdate', (socketClient) => {
+                    document.getElementById('connections').textContent = socketClient;
+                });
+             
+                // const n = navigator.userAgent;
+                // Emitiendo al servidor
+                socket.emit('nuevo_evento', info);
+
+            }
+
+        )();
+    </script>
+</body>
+
+</html>

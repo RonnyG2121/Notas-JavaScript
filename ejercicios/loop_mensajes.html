@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loop de eventos</title>
+	<meta charset="utf-8">
+	<script>
+		/*
+		console.log(this);
+		window.onload = function(){
+			document.getElementById("presionar").onclick = funcion1;
+		}
+		function funcion1() {
+			console.log("Gracias por presionarme");
+			console.log(this);
+		}
+		console.log("Mensaje en contexto global");
+		*/
+		/**/
+		// Añade un frame al stack de llamada
+		console.log('primer mensaje');
+
+		// WebApi: Agrega un mensaje a la cola
+		setTimeout(function(){
+		console.log('segundo mensaje');
+		},2000);
+
+		// WebApi: Agrega otro mensaje a la cola
+		setTimeout(function(){
+		console.log('tercer mensaje');
+		});
+
+		// Añade un frame al stack de llamada
+		console.log('cuarto mensaje');
+
+		// Añade un frame al stack de llamada
+		console.log('quinto mensaje');
+
+	</script>
+</head>
+<body>
+<button id="presionar">Presionar</button>
+</body>
+</html>

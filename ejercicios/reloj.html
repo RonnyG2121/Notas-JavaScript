@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Reloj</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		#reloj {
+			font-size: 3em;
+		}
+
+		button {
+			font-size: 1em;
+			margin: 0.5em;
+			padding: 0.5em;
+		}
+	</style>
+	<script>
+  let idReloj = null; // Variable para almacenar el identificador del intervalo del reloj
+  let bandera = false; // Variable para controlar si el reloj está activo o no
+
+  // Función que se ejecuta cuando la ventana se ha cargado completamente
+  window.onload = function () {
+    desplegarfecha();
+    desplegarHora();
+    document.getElementById("boton").addEventListener("click", activarReloj, false);
+  }
+
+  // Función para activar o desactivar el reloj
+  const activarReloj = (e) => {
+    bandera = !bandera; // Invierte el valor de la bandera
+
+    if (bandera) {
+      // Si la bandera es verdadera, se activa el reloj
+      desplegarHora();
+      idReloj = setInterval(desplegarHora, 1000); // Se actualiza la hora cada segundo
+      document.getElementById("boton").innerHTML = "Desactivar"; // Actualiza el texto del botón
+    } else {
+      // Si la bandera es falsa, se desactiva el reloj
+      if (idReloj !== null) {
+        clearInterval(idReloj); // Se detiene el intervalo del reloj
+        document.getElementById("boton").innerHTML = "Activar"; // Actualiza el texto del botón
+        document.getElementById("hora").innerHTML = ""; // Limpia el contenido del elemento HTML que muestra la hora
+      }
+    }
+  }
+
+  // Función para mostrar la fecha actual
+  const desplegarfecha = () => {
+    const hoy = new Date(); // Obtiene la fecha y hora actual
+    let fecha = String(hoy.getDate()) + "/"; // Obtiene el día del mes
+    fecha += String(hoy.getMonth()) + "/"; // Obtiene el mes (los meses empiezan en 0)
+    fecha += String(hoy.getFullYear()); // Obtiene el año
+    document.getElementById("fecha").innerHTML = `Hoy es ${fecha} `; // Actualiza el elemento HTML que muestra la fecha
+  }
+
+  // Función para mostrar la hora actual
+  const desplegarHora = () => {
+    if (bandera) {
+      // Si el reloj está activo, muestra la hora
+      const hoy = new Date(); // Obtiene la fecha y hora actual
+      const h = ceros(hoy.getHours()); // Obtiene las horas y agrega ceros a la izquierda si es necesario
+      const m = ceros(hoy.getMinutes()); // Obtiene los minutos y agrega ceros a la izquierda si es necesario
+      const s = ceros(hoy.getSeconds()); // Obtiene los segundos y agrega ceros a la izquierda si es necesario
+      const hora = `${h}:${m}:${s}`; // Formatea la hora
+      document.getElementById("hora").innerHTML = `y son las ${hora} horas.`; // Actualiza el elemento HTML que muestra la hora
+    }
+  }
+
+  // Función auxiliar para agregar ceros a la izquierda de un número si es menor que 10
+  const ceros = (numero) => (numero < 10) ? "0" + numero : String(numero);
+</script>
+
+</head>
+
+<body>
+	<div id="reloj"><span id="fecha"></span>
+    <span id="hora"></span>
+  </div>
+	<button id="boton">Activar</button>
+</body>
+
+</html>

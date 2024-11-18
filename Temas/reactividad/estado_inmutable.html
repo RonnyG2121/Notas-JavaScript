@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado inmutable</title>
+</head>
+
+<body>
+    <h1>Estado inmutable</h1>
+    <form id="form_tareas">
+        <input type="text" id="todotask" placeholder="Tareas por hacer">
+        <input type="submit" value="Agregar">
+
+        <h2>Lista de tareas</h2>
+        <ul id="lista_tareas"></ul>
+
+        <script>
+            const d = document,
+                input = d.getElementById("todotask"),
+                ul = d.getElementById("lista_tareas"),
+                estado = {
+                    listaTareas: [],
+                },
+
+                template = () => {
+                    if (estado.listaTareas.length < 1) {
+                        return `<p>La listta de tareas está vacía.</p>`
+                    } else {
+                        let tareasPorHacer = estado.listaTareas.map((item) => {
+                            return `<li>${item}</li>`;
+                        }).join("");
+                        return tareasPorHacer;
+                    }
+                }
+
+            const render = () => {
+                console.info(estado);
+
+                if (!ul) {
+                    return;
+                } else {
+                    ul.innerHTML = template();
+                }
+            }
+
+            const setState = (obj = {}) => {
+                for (let key in obj) {
+                    if (estado.hasOwnProperty(key)) {
+                        estado[key] = obj[key];
+                    }
+                }
+
+                render();
+            }
+
+            const getState = () => {
+                return JSON.parse(JSON.stringify(estado))
+            }
+
+            d.addEventListener("DOMContentLoaded", render);
+
+            //Estableciendo valores por defecto al State
+            setState({
+                listaTareas: ["Tarea 1", "Tarea 2", "Tarea 3"],
+                nombre: "Ronny",
+            });
+
+            //Estado Mutable, porque permite modificar el estado directamente creando una copia del objeto y agregando otro elemento
+            //const items = estado.listaTareas;
+            //items.unshift("Tarea 4");
+
+            //Estado inmutable, poraue obiene una copia del estado original sin modificarlo
+            const items = getState();
+            items.listaTareas.push("tarea 4");
+            console.info(estado);
+            //console.ifno("Estado Mutable", estado);
+
+            d.addEventListener("submit", (ev) => {
+                if (!ev.target.matches("#form_tareas")) {
+                    return false;
+                } else {
+                    ev.preventDefault();
+                    if (!input) return;
+
+                    //Actualizar el estado en la interfaz
+                    //estado.listaTareas.unshift(inputk.value);
+                    //render();
+
+                    //Actualizar el State de forma reactiva
+                    const lastState = getState()
+                    lastState.listaTareas.push(input.value);
+                    setState({ listaTareas: lastState.listaTareas});
+
+                    input.value = "";
+                    input.focus();
+                }
+            })
+        </script>
+</body>
+
+</html>
+</form>d-grid

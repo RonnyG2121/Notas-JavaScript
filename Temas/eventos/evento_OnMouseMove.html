@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Evento | onmousemove</title>
+	<meta charset="utf-8">
+	<script>
+		window.onload = function(){
+			document.getElementById("cuadro").onmousemove = function(e){
+				var x = e.clientX;
+				var y = e.clientY;
+				var coordenadas = "Coordenadas ("+x+", "+y+")";
+				document.getElementById("salida").innerHTML = coordenadas;
+			}
+			document.getElementById("cuadro").onmouseout = function(e){
+				document.getElementById("salida").innerHTML = "";
+			}
+		}
+	</script>
+	<style>
+		#cuadro{
+			width: 199px;
+			height: 99px;
+			border: 1px solid black;
+		}
+		body{margin:0;}
+	</style>
+</head>
+<body>
+<div id="cuadro"></div>
+<p id="salida"></p>
+</body>
+</html>

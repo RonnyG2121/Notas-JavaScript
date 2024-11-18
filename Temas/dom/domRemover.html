@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Document Object Model | remover()</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function() {
+		/*
+		var medio = document.getElementById("medio");
+		var ul = document.querySelector("ul");
+		var ant = ul.removeChild(medio);
+		console.log(ant.nodeName);
+		*/
+		var ul = document.querySelector("ul");
+		while(ul.firstChild) ul.removeChild(ul.firstChild);
+	}
+	</script>
+</head>
+<body>
+<h1>Esta es una página HTML</h1>
+<p>Las siglas DOM significan:</p>
+<ul>
+	<li>Document</li>
+	<li id="medio">Object</li>
+	<li>Model</li>
+	<li>Model</li>
+	<li>Model</li>
+	<li>Model</li>
+	<li>Model</li>
+	
+</ul>
+</body>
+</html>

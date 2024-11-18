@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array elevado al cuadrado</title>
+<script>
+const arrayElevada = (array=[]) => {
+    let cuadrado = [];
+    for(let elemento = 0; elemento < array.length; elemento++) {
+        cuadrado.push(array[elemento] ** 2);
+    }
+    return cuadrado;
+}
+
+console.log(arrayElevada([1, 2, 3, 4,5,6,7,8,9,10]));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

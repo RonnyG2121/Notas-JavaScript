@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Usando Arrays</title>
+  <link rel="stylesheet" href="../css/micss3.css">
+  <script>
+    // Creando el array
+    var datosDeporte = ["Zapatillas", "Camiseta", "Pantalón", "Calcetines"];
+
+    /* Otra forma de declararlos he iniciarlos:
+    var articulosDeporte = new Array("Zapatillas", "Camiseta", "Pantalón", "Calcetines");
+    JavasCript permite almacenar datos de diferente tipo en un array, cosa que en otros lenguages no es posible.
+    También, se pueden declarar vacíos*/
+
+  </script>
+</head>
+
+<body>
+  <div class="contenedor">
+    <div class="header">
+      <p class="logo">JavaScript Arrays <i class="mm">Píldoras Informáticas
+      </p>
+    </div>
+    <div class="contenido">
+      <div class="principal">
+        <h1>Manejando Arrays</h1>
+        <script>
+          // Agregando un elemento al principio del array
+          datosDeporte.unshift("Tenis");
+          // Agregando un elemento al final del array
+          datosDeporte.push("Pelota");
+          // Accediendo a los datos del array
+          document.write("<p>" + "Este array contiene: " + datosDeporte.length + "Elementos" + "</p>");
+          document.write("<p>" + "Su último elemento es: " + (datosDeporte.length - 1) + "</p>");
+          // Viendo el nombre de todos los elementos
+          document.write("<p>" + "Estos son todos los elementos");
+          for (i = 0; i < datosDeporte.length; i++) {
+            document.write(datosDeporte[i] + ", ");
+            document.write("</p>");
+          }
+        </script>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

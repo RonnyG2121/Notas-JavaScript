@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando un correo electrónico</title>
+<script>
+function correoValido(correo = "") {
+    let bandera = false;
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+    if(correo.match(regex)) {
+        bandera = true;
+        return `El correo es correcto. ${bandera}`;
+    }
+    else {
+        bandera = false;
+        return `Escriba un correo válido. ${bandera}`;
+    }
+}
+
+console.log(correoValido("ronny@ememplo.com"));
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

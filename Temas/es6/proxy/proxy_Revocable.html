@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proxy Revocable</title>
+	<meta charset="utf-8">
+	<script>
+
+		const auto = {
+			placas: "123abc",
+			marca: "Ford",
+			anio: 2015,
+			modelo: "T",
+			color: "Negro"
+		}
+
+		const handler = {
+			get:function(target, prop, proxy){
+				if (prop==="marca") {
+					return `Auto marca: ${target[prop]}`;
+				} else if (prop==="modelo") {
+					return `Auto modelo: ${target[prop]}`;
+				} else if (prop==="todo") {
+					return `Auto modelo: ${target["marca"]} ${target["modelo"]} ${target["color"]}`;
+				} else {
+					return target[prop];
+				}
+			},
+			set:function(target, prop, valor) {
+				if (prop==="marca" || prop==='modelo') {
+					console.log(`No puede modificar la propiedad: ${prop}`);
+				} else {
+					target[prop] = valor;
+				}
+			},
+			deleteProperty: function(target, prop) {
+				console.log("No puedes eliminar ninguna propiedad");
+			}
+		}
+
+		const {proxy:miProxy, revoke} = Proxy.revocable(auto,handler);
+
+		console.log(miProxy.todo);
+
+		revoke();
+
+		console.log(miProxy.todo);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

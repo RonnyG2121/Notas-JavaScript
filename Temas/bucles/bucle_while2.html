@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var nombre, edad, poblacion;
+        nombre = prompt("ingresa tu nombre");
+        while(! isNaN(nombre)) {
+            nombre = prompt("Ingresa un nombre válido. No se aceptan números");
+        }
+        edad = prompt("Ingresa tu edad");
+        // Usando el bucle while para crear dos condiciones. en el caso de cumplirse o que sean falsas, Entrará en el bucle
+    while(edad <= 0 || edad >= 120 || isNaN(edad)) {
+            edad = prompt("Ingresa una edad válida por favor. tampoco ingrese texto");
+        }
+        poblacion = prompt("Ingresa tu población");
+        while(! isNaN(poblacion)) {
+            poblacion = prompt("Ingresa una población válida. no se aceptan números");
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle while2</title>
+</head>
+<body>
+    <div id="contenedor" style="width: 25%; background-color: blue; margin: auto; padding: 15px;">
+    <p>Nombre
+        <script>document.write(nombre);
+        </script>
+    </p>
+    <p>Edad
+        <script>document.write(edad);
+        </script>
+    </p>
+    <p>Población
+        <script>document.write(poblacion);
+        </script>
+    </p>
+
+    </div>
+</body>
+</html>

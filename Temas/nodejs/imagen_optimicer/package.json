@@ -1,0 +1,24 @@
+{
+  "name": "imagen_optimicer",
+  "version": "0.0.1",
+  "description": "Optimizador de imágenes",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "imagenes",
+    "node.js",
+    "javascript",
+    "optimizador",
+    "optimizar"
+  ],
+  "author": "RonnyG2121 <yordemblo@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "jimp": "^1.6.0",
+    "sharp": "^0.33.5"
+  }
+}

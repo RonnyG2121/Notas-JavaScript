@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Calculadora básica usando eventos</title>
+<style>
+
+.numero{
+	width:60px;
+	height:60px;
+	
+	
+}
+
+.igual{
+	width:120px;
+	height:60px;
+	
+}
+
+table{
+	margin:auto;
+}
+
+.color_display{
+	height:30px;
+	background-color:#000;
+	border:medium #FFF;
+	font: "Space Age";
+	color:#0F0;
+	font-size:18px;
+	text-align:right;
+	padding:5px;
+}
+
+
+
+</style>
+
+<script>
+
+// Creamos una variable llamada cifra que tendrá una cadena vacía. Esto nos servirá para concatenar los números y no sumarlos entre sí
+var cifra = "";
+
+// Creamos la variable acumulador para que acumule los números introducidos en el display y los guarde
+var acumulador= 0;
+
+// Creamos variables booleanas para hacer las comprobaciones en la función del igual
+var sumadora = false;
+var restadora = false;
+
+// Creamos la función que recibirá un parámetro y será llamada en el evento onclick de los números para escribir el valor correspondiente a cada botón
+function DameNumero(digito) {
+// Obtenemos el id del display de la calculadora. es un cuadro de texto. y luego será concatenado con la variable cifra más el número que se valle introduciendo
+document.getElementById("display").value = cifra + digito;
+// Ahora, Mostrando lo que hay en el cuadro de texto usando la variable cifra
+cifra =document.getElementById("display").value;
+}
+
+// Creamos la función Suma() Esta será llamada al pulsar el botón más
+function Suma() {
+// Hacemos las operaciones para que el cuadro de texto no concatene ni tome los números como texto
+acumulador = acumulador + parseInt(cifra);
+// Reseteamos la variable cifra para poder contatenar los números
+cifra = "";
+// Mostramos el resultados de  los números en pantalla
+document.getElementById("display").value = acumulador;
+// Inicializando la variable sumadora en verdadera
+sumadora = true;
+
+}
+
+// Creando la función Resta
+function Resta() {
+if(sumadora == true) {
+acumulador = acumulador + parseInt(cifra);
+cifra = "";
+// Mostramos el resultados de  los números en pantalla
+document.getElementById("display").value = acumulador;
+}
+
+else {
+// Hacemos las operaciones para que el cuadro de texto no concatene ni tome los números como texto
+acumulador = acumulador - parseInt(cifra);
+// Mostramos el resultados de  los números en pantalla
+document.getElementById("display").value = acumulador;
+}
+// Reseteamos la variable cifra para poder contatenar los números
+cifra = "";
+// Inicializando la variable restadora en verdadera
+restadora = true;
+sumadora = false
+
+}
+
+// Creando la función del igual
+function Resultado() {
+// Comprobando si la variable sumadora es verdadera
+if(sumadora == true) {
+// Mostrando la suma en el display
+document.getElementById("display").value = acumulador + parseInt(cifra);
+}
+
+// Comprobando la condición para restar
+else if(restadora == true) {
+document.getElementById("display").value = acumulador - parseInt(cifra);
+}
+
+// Reseteando las variables acumuladdor y cifra para que no nos arroje resultados incorrectos a la hora de operar
+acumulador = acumulador + parseInt(document.getElementById("display")).value;
+cifra = 0;
+
+}
+
+</script>
+
+</head>
+
+<body>
+<table width="15%" border="1">
+  <tr>
+    <td colspan="4" align="center">
+    <input name="display" type="text" class="color_display" id="display" size="25" readonly></td>
+  </tr>
+  <tr>
+    <td width="26%"><input name="button" type="button" class="numero" id="button" value="+" onclick="Suma();"></td>
+    <td width="21%"><input name="button2" type="button" class="numero" id="button2" value="-" onclick="Resta();"></td>
+    <td width="21%"><input name="button3" type="button" class="numero" id="button3" value="*" ></td>
+    <td width="32%"><input name="button4" type="button" class="numero" id="button4" value="/" ></td>
+  </tr>
+  <tr>
+    <td><input name="num7" type="button" class="numero" id="num7" value="7" onclick="DameNumero(7);"></td>
+    <td><input name="num8" type="button" class="numero" id="num8" value="8" onclick="DameNumero(8);"></td>
+    <td><input name="num9" type="button" class="numero" id="num9" value="9" onclick="DameNumero(9);"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input name="num4" type="button" class="numero" id="num4" value="4" onclick="DameNumero(4);"></td>
+    <td><input name="num5" type="button" class="numero" id="num5" value="5" onclick="DameNumero(5);"></td>
+    <td><input name="num6" type="button" class="numero" id="num6" value="6" onclick="DameNumero(6);"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input name="num1" type="button" class="numero" id="num1" value="1" onclick="DameNumero(1);" ></td>
+    <td><input name="num2" type="button" class="numero" id="num2" value="2" onclick="DameNumero(2);"></td>
+    <td><input name="num3" type="button" class="numero" id="num3" value="3" onclick="DameNumero(3);"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input name="num0" type="button" class="numero" id="num0" value="0" onclick="DameNumero(0);"></td>
+    <td><input name="button17" type="button" class="numero" id="button17" value=","></td>
+    <td colspan="2"><input name="button12" type="button" class="igual" id="button12" value="=" onclick="Resultado();"></td>
+  </tr>
+</table>
+
+<script>
+  document.getElementById("display").value = "0";
+</script>
+
+</body>
+</html>

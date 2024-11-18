@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle do while1</title>
+</head>
+<body>
+    <!-- Creando tabla-->
+    <table>
+<tr>
+
+<td>
+<input type="text" id="textbox_Mensaje">
+</td>
+<td>
+<input type="text" id="textbox_Intentos">
+</td>
+</tr>
+
+    </table>
+
+<!-- c-odigo javascript -->
+<script>
+    // programa que elige un número aleatorio
+    var numeroAleatorio = Math.round(Math.random() * 100); // Elige un número aleatorio entre 1 y 100
+var intentos = 0; // Inicializa el contador de intentos a 0
+var numeroElegido = 0;
+var mensaje, TotalIntentos;
+mensaje = document.getElementById("textbox_Mensaje");
+TotalIntentos = document.getElementById("textbox_Intentos");
+
+    // inicio del bucle do while
+do {
+  numeroElegido = parseInt(prompt("Elige un número del 1 al 100:")); // Pide al usuario que elija un número
+  intentos++; // Incrementa el contador de intentos por cada intento
+  if (numeroAleatorio < numeroElegido) {
+   mensaje.value = "El número elegido es menor que el número buscado. Intenta de nuevo.";
+  }
+  if(numeroAleatorio > numeroElegido){
+   mensaje.value =  "El número elegido es mayor que el número buscado. Intenta de nuevo.";
+  }
+} while (numeroAleatorio != numeroElegido); // El bucle se repetirá hasta que el usuario adivine el número
+
+   TotalIntentos.value = "¡Acertaste! El número era ${numeroAleatorio}. Te tomó ${intentos} intentos para conseguirlo.";
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arreglos | Métodos</title>
+	<meta charset="utf-8">
+	<script>
+		//variable asociada
+		var dias = new Array();
+		//crear un arreglo "al vuelo"
+		var meses = [];
+
+		//populate / poblar
+		dias[0] = "Domingo";
+		dias[1] = "Lunes";
+		dias[2] = "Martes";
+		dias[3] = "Miércoles";
+		dias[4] = "Jueves";
+		dias[5] = "Viernes";
+		dias[6] = "Sábado";
+
+		document.write("Hoy es el día "+dias[3]+"<br>");
+
+		//barrer el arreglo
+		for (var i = 0; i < dias.length; i++) {
+			document.write("Ho es el día "+dias[i]+"<br>");
+		}
+
+		//arreglos por referencia o asociados
+		meses["enero"] = 473633;
+		meses["febrero"] = 6563463;
+		meses["marzo"] = 635226;
+
+		document.write("Alumnos inscritos en enero "+meses["enero"]+"<br>");
+
+		for(alumnos in meses){
+			document.write("Alumnos inscritos en el mes de "+alumnos+" es de "+meses[alumnos]+"<br>");
+		}
+		document.write("<hr>");
+		var jugadores = new Array("Pepe", "Toño", "Gustavo", "Paco");
+		jugadores.push("Rafael");
+		for (var i = 0; i < jugadores.length; i++) {
+			document.write(jugadores[i]+"<br>");
+		}
+
+		document.write("<hr>");
+		document.write("Los jugadores en órden alfabético son: "+jugadores.sort()+"<br><br>");
+
+		document.write("<hr>");
+		document.write("Los jugadores en órden inverso son: "+jugadores.reverse()+"<br><br>");
+
+		document.write("<hr>");
+		jugadores.push("Carlos","Messi");
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+
+		//pop() elimina el ultimo elemento y opcionalmente podemos recuperarlo
+		document.write("<hr>");
+		var ultimo = jugadores.pop();
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+		document.write("El jugador expulsado es "+ultimo);
+
+		//unshift añade un elemento al inicio del arreglo
+		document.write("<hr>");
+		jugadores.unshift("Laura");
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+		
+		//shift() extrae el primer elemento y opcionalmente podemos recuperarlo
+		document.write("<hr>");
+		var primero = jugadores.shift();
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+		document.write("El mejor jugador es "+primero);
+
+		//splice() extraemos los elementos del arreglo a partir del "n" elemento
+		//extraemos "m" elemento
+		document.write("<hr>");
+		var expulsados = jugadores.splice(1,2);
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+		document.write("La lista de elementos expulsados es: "+expulsados);
+
+		//splice() añadir "n" elementos despues de el indice indicado
+		document.write("<hr>");
+		jugadores.splice(1,0,"Cristiano","Javier");
+		document.write("La nueva lista de jugadores es: "+jugadores+"<br><br>");
+
+		//join() concatenamos un arreglo por medio de un separador
+		document.write("La nueva lista de jugadores es: "+jugadores.join(" * "));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

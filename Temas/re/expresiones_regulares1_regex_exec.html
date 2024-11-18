@@ -1,0 +1,17 @@
+<!doctype html>
+<html>  
+  <head>  
+    <meta charset="utf-8">  
+    <script>
+      // Trabajando conas expresiones regulares
+      // Buscando la letra e en toda la cadena de texto
+      var re = new RegExp("e","g");
+      // Aplicando la expresión regular a la cadena de texto murcielago
+      console.log(re.exec("Murcielago"));
+      // Esto devuelve la última posición en la que se encuentra el índice luego de encontrar la última coicidencia en el texto
+      console.log(re.lastIndex);
+    </script>  
+  </head>  
+  <body>
+  </body>  
+</html>
