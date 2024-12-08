@@ -1,0 +1,24 @@
+{
+  "name": "crud_express_mvc",
+  "version": "1.0.0",
+  "description": "sto es un proyecto de práctica con epress del curso de desarrollo web con node y de Jon Mircha. Este es mi trabajo tomado del curso, donde haré mis cambios si los considero, pero solo prácticas",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "RonnyG2121 <yordemblo@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7",
+    "nunjucks": "^3.2.4"
+  },
+  "dependencies": {
+    "uuid": "^11.0.3"
+  }
+}
