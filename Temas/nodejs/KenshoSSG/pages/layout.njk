@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title%}
+        <title>Kensho SSG</title>
+    {% endblock title %}
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header>
+        {% block header%}
+        <h1>Bienvenido a Kensho SSG</h1>
+        <p>El generador de sitios estáticos que simplifica tu desarrollo web.</p>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="#servicios">Servicios que ofrecemos</a></li>
+                <li><a href="#acerca">Acerca de nosotros</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+    {% endblock header%}
+</header>
+<main>
+    {% block content%}
+{% endblock content%}</main></body></html>
