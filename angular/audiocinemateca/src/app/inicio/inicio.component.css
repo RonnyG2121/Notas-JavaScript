@@ -1,0 +1,21 @@
+/* Puedes añadir estilos específicos para tu componente de inicio aquí */
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0%; /* Se actualizará dinámicamente con Angular */
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  line-height: 20px; /* Centrar texto verticalmente */
+  transition: width 0.3s ease-in-out;
+}

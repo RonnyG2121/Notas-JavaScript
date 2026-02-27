@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring objetos</title>
+<script>
+let usuarios = {
+    nombre: "Juan",
+    correo: "correo@ejemplo.com",
+    edad: 30,
+    pais: "RD",
+    profesion: "Ingeniero"
+}
+
+// Destructurando
+let {nombre, correo, edad, pais, profesion} = usuarios;
+nombre = "Ronny";
+correo = "R@ejemplo.com";
+console.info(usuarios);
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

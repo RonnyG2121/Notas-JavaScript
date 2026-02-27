@@ -1,0 +1,43 @@
+<div>
+  <button (click)="volver()" class="volver-btn">← Volver a la lista</button>
+  <h3>{{ serie?.titulo }}</h3>
+  <div class="detalle-container">
+    <div class="video-reproductor">
+      <audio controls autoplay [src]="videoUrlActual">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+    <div class="info-container">
+      <p><strong>Año:</strong> {{ serie?.anio }}</p>
+      <p><strong>Sinopsis:</strong> {{ serie?.sinopsis }}</p>
+      
+      <div *ngIf="serie?.capitulos && getTemporadas().length > 0">
+        <h5>Temporadas:</h5>
+        <div class="temporadas-container" role="tablist">
+          <button 
+            *ngFor="let temporadaNum of getTemporadas()"
+            (click)="seleccionarTemporada(temporadaNum)"
+            [class.active]="temporadaNum === temporadaSeleccionada"
+            role="tab"
+            [attr.aria-selected]="temporadaNum === temporadaSeleccionada">
+            {{ temporadaNum }}
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="capitulosTemporadaActual && capitulosTemporadaActual.length > 0">
+        <h5>Capítulos (Temporada {{ temporadaSeleccionada }}):</h5>
+        <ul class="lista-capitulos">
+          <li *ngFor="let capitulo of capitulosTemporadaActual">
+            <button (click)="seleccionarCapitulo(capitulo)" [class.active]="capitulo.enlace === videoUrlActual">
+              Capítulo {{ capitulo.capitulo }}: {{ capitulo.titulo }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="isLoading">Cargando serie...</p>
+<p *ngIf="!isLoading && !serie">Serie no encontrada.</p>

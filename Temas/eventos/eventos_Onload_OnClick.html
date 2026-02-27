@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos | onload y oncick</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		alert("Bienvenid@ a nuestra página");
+		document.getElementById("color").onclick = function(){
+			var bodys = document.getElementsByTagName("body");
+			bodys[0].setAttribute("class","azul");
+		}
+	}
+	</script>
+	<style>
+		.azul{background-color:blue;}
+	</style>
+</head>
+<body>
+<p id="color">Cambiar de color</p>
+</body>
+</html>

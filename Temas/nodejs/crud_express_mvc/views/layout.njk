@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title%}
+            <title>CRUD con node.js y express.js</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/css/estilos.css">
+    </head>
+    <body>
+        <a href="#principal">Saltar al contenido principal</a>
+
+        <header>
+            {% block header %}
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="/about">Acerca</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            {% endblock %}
+        </header>
+
+        <main id="principal">
+            {% block content %}
+                <h1>{{title}}</h1>
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>© 2024 Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>

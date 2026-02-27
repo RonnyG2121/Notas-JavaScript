@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script>
+    var str = "En el agua clara, que brota en la fuente de Doña Clara";
+    var res = str.replace(/clara/g, "helada");
+    console.log(res);
+    var res = str.replace(/agua|clara|fuente/gi, function (x) { return x.toUpperCase(); });
+    console.log(res);
+  </script>w
+</head>
+
+<body>
+</body>
+
+</html>

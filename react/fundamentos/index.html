@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de imágenes sin react</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .galeria {
+            justify-content: center;
+            gap: 10px;
+            display: flex;
+            margin: 0 auto;
+            max-width: 80%;
+        }
+
+        img {
+            width: 300px;
+            height: 250px;
+            display: block;
+            margin: auto;
+
+        }
+
+        .form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Galería de imágenes sin React</h1>
+    <div class="form">
+        <form id="form_ruta">
+            <label for="ruta_imagen">Ingresa la ruta de la imagen a cargar</label>
+            <input type="text" name="" id="ruta_imagen">
+            <label for="pie_foto">Ingresa el texto del pie de foto</label>
+            <input type="text" name="" id="pie_foto">
+            <input type="submit" id="btn_enviar" value="Enviar">
+        </form>
+
+
+    </div>
+
+    <div class="galeria">
+        <div>
+            <img src="imgs/_3307f551-4edf-46d7-814f-5e796723c920.jpeg" alt="Imagen">
+        </div>
+        <div>
+            <img src="imgs/_be7abae0-5abf-41c3-89e6-b6a6e0cf99ba.jpeg" alt="Imagen">
+        </div>
+        <div>
+            <img src="imgs/_da1f2ebe-9cd6-45bf-aefc-aa82d35a3f4b.jpeg" alt="Imagen">
+        </div>
+        <div>
+            <img src="imgs/_e9840233-d8fb-4c59-8e31-1b33cb0600fc.jpeg" alt="Imagen">
+        </div>
+    </div>
+
+    <script>
+        const agregaImagen = () => {
+            const d = document;
+            const form = d.querySelector("#form_ruta");
+            const ruta_imagen = d.querySelector("#ruta_imagen");
+            const pie_foto = d.querySelector("#pie_foto");
+            // const btn_enviar = d.querySelector("#btn_enviar");
+            const div_dinamico = d.createElement("div");
+            const img = d.createElement("img");
+            const galeria = d.querySelector(".galeria");
+
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                if (e.target.matches("#form_ruta")) {
+                    img.src = ruta_imagen.value;
+                    img.alt = pie_foto.value;
+
+                    div_dinamico.appendChild(img);
+                    galeria.appendChild(div_dinamico);
+                }
+                console.log(e);
+                console.log(ruta_imagen.value);
+                console.log(pie_foto.value);
+
+            });
+        }
+
+        agregaImagen();
+    </script>
+</body>
+
+</html>

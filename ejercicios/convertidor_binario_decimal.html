@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de decimal a binario y de binario a decimal</title>
+<script>
+function convertBD(num, base) {
+    let numDecimal = parseInt(num);
+    let posicion = 0;
+    let reciduo = 0;
+    let multiplicador = 0;
+    let decimal = 0;
+    let binario = "";
+    if (base === 2) {
+        if (numDecimal <= 0) {
+            return "0";
+        }
+        else {
+            while (numDecimal > 0) {
+                reciduo = parseInt(numDecimal % 2);
+                numDecimal = parseInt(numDecimal / 2);
+                binario = reciduo.toString() + binario;
+            }
+        }
+        return binario;
+    }
+    else if(base === 10) {
+        numDecimal = num.toString();
+        numDecimal.split("").reverse().join("");
+        for(digito of numDecimal) {
+            multiplicador = 2 ** posicion;
+            decimal += parseInt(digito * multiplicador);
+            posicion += 1;
+        }
+        return decimal;
+    }
+    else if(base !== 2 && base !== 10) {
+        return "Elija una operación correcta";
+    }
+
+}
+
+console.log(convertBD(11, 10));
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

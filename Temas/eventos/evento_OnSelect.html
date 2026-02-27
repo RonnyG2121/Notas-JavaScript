@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos | onselect</title>
+	<meta charset="utf-8">
+	<script>
+	var cajas, miBody;
+	window.onload = function(){
+		cajas = document.getElementsByTagName("input");
+		miBody = document.getElementsByTagName("body");
+
+		cajas[0].onselect = function(){
+			miBody[0].setAttribute("class","rojo");
+		}
+
+		cajas[1].onselect = function(){
+			miBody[0].setAttribute("class","verde");
+		}
+
+		cajas[2].onselect = function(){
+			miBody[0].setAttribute("class","azul");
+		}
+
+		cajas[3].onselect = function(){
+			miBody[0].setAttribute("class","amarillo");
+		}
+
+	}
+	</script>
+	<style>
+		.rojo{background: red;}
+		.azul{background: blue;}
+		.verde{background: green;}
+		.amarillo{background: yellow;}
+	</style>
+</head>
+<body>
+<p><input type="text" id="rojo" value="rojo"></p>
+<p><input type="text" id="verde" value="verde"></p>
+<p><input type="text" id="azul" value="azul"></p>
+<p><input type="text" id="amarillo" value="amarillo"></p>
+</body>
+</html>

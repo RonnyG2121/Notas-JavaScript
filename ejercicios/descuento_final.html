@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descuento final</title>
+<script>
+function descuento(monto=0, porcentaje=0) {
+    let totalDescuento = (monto * porcentaje) / 100;
+    let resultado = monto- totalDescuento;
+    return `Monto inicial: ${monto}. Descuento del: ${porcentaje} %. total con descuento: ${resultado}`;
+}
+
+console.log(descuento(1000, 30));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

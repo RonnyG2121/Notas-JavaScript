@@ -1,0 +1,20 @@
+<div>
+  <button (click)="volver()" class="volver-btn">← Volver a la lista</button>
+  <h3>{{ documental?.titulo }}</h3>
+  <div class="detalle-container">
+    <div class="video-reproductor">
+      <audio controls autoplay>
+        <source [src]="documental?.enlace" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+    <div class="info-container">
+      <p><strong>Año:</strong> {{ documental?.anio }}</p>
+      <p><strong>Director:</strong> {{ documental?.director }}</p>
+      <p><strong>Sinopsis:</strong> {{ documental?.sinopsis }}</p>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="isLoading">Cargando documental...</p>
+<p *ngIf="!isLoading && !documental">Documental no encontrado.</p>

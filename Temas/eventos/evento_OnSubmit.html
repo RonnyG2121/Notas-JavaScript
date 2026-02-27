@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Evento | onSubmit</title>
+	<meta charset="utf-8">
+	<script>
+	var forma, clave1, clave2;
+	window.onload = function(){
+		forma = document.getElementById("forma");
+		clave1 = document.getElementById("clave1");
+		clave2 = document.getElementById("clave2");
+
+		forma.onsubmit = function(){
+			var valor1 = clave1.value;
+			var valor2 = clave2.value;
+			if (valor1=="" || valor2=="") {
+				alert("Las claves de acceso no pueden estar vacías");
+			} else if(valor1!=valor2){
+				alert("Las claves de acceso no coinciden");
+			} else {
+				alert("Las claves de acceso son correctas");
+				return true;
+			}
+			return false;
+		}
+	}	
+	</script>
+</head>
+<body>
+<form id="forma" name="forma" method="post" action="guarda.php">
+	<p>
+		<label for="clave1">Clave 1</label>
+		<input type="password" name="clave1" id="clave1">
+	</p>
+	<p>
+		<label for="clave2">Clave 2</label>
+		<input type="password" name="clave2" id="clave2">
+	</p>
+	<p>
+		<input type="submit" name="enviar" id="enviar" value="Enviar">
+	</p>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div class="container">
+    <div>
+        <h3>{{producto.nombre}}</h3>
+        <ul>
+
+            <li>{{producto.descripcion}}</li>
+            <li>Precio: {{producto.precio}}</li>
+        </ul>
+
+                                <div>
+            <button type="submit" class="btn btn-info ms-4" (click)="editarProducto(producto.id!)">Editar </button>
+        </div>
+
+        <div>
+            <button (click)="eliminarProducto(producto.id)">Eliminar {{producto.nombre}}</button>
+        </div>
+    </div>
+
+</div>

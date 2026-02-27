@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Adivina el numero mágico</title>
+<script>
+//
+var numero_aleatorio = Math.floor(Math.random()*100)+1;
+console.log(numero_aleatorio);
+var intentos = 1;
+window.onload = function(){
+	document.getElementById("envia").onclick = function (){
+		miNumero = document.getElementById("numero").value;
+		if(numero_aleatorio > miNumero){
+			document.getElementById("salida").innerHTML += intentos+") El número "+miNumero+" es mayor al número buscado<br>";
+		} else if(numero_aleatorio<miNumero){
+			document.getElementById("salida").innerHTML += intentos+") El número "+miNumero+" es menor al número buscado<br>";
+		} else {
+			document.getElementById("salida").innerHTML += intentos+") El número mágico es "+numero_aleatorio+" felicidades<br>";
+			document.getElementById("envia").setAttribute("disabled", "disabled");
+			return;
+		}
+		intentos++;
+		if(intentos>6){
+			document.getElementById("salida").innerHTML += "Lo sentimos, pero eres muy malo para adivinar. El número mágico era: "+numero_aleatorio;
+			document.getElementById("envia").setAttribute("disabled", "disabled");
+		}
+		document.getElementById("numero").value = "";
+	}
+}
+</script>
+</head>
+
+<body>
+<p>Encuentra el número mágico entre 1 y 100</p>
+<p>Tienes 6 oportunidades</p>
+<input type="text" id="numero"/>
+<button id="envia">Envia</button>
+<div id="salida"></div>
+</body>
+</html>

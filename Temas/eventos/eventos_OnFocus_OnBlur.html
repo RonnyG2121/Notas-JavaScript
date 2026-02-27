@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos | onblur y onfocus</title>
+	<meta charset="utf-8">
+	<script>
+	var campo1, campo2;
+	window.onload = function() {
+		//referencias a los elementos
+		campo1 = document.getElementById("campo1");
+		campo2 = document.getElementById("campo2");
+
+		//listeners
+		campo1.onfocus = function(){
+			enciende(this);
+		}
+		campo1.onblur = function(){
+			apaga(this);
+		}
+		campo2.onfocus = function(){
+			enciende(this);
+		}
+		campo2.onblur = function(){
+			apaga(this);
+		}
+	}
+	function enciende(campo){
+		campo.setAttribute("class","enciende")
+	}
+	function apaga(campo){
+		campo.setAttribute("class","apaga")
+	}
+	</script>
+	<style>
+		.enciende{background-color: #ff9;}
+		.apaga{background-color: #fff;}
+	</style>
+</head>
+<body>
+<p>
+	<label for="campo1">Campo1</label>
+	<input type="text" name="campo1" id="campo1">
+</p>
+
+<p>
+	<label for="campo2">Campo2</label>
+	<input type="text" name="campo2" id="campo2">
+</p>
+</body>
+</html>

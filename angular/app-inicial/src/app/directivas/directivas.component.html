@@ -1,0 +1,18 @@
+<h2>Directivas</h2>
+<div class="container">
+    <h3>Directiva if else</h3>
+    @if (autenticado === true) {
+        <p role="alert">Estás autenticado.</p>
+    } @else {
+        <p role="alert">Debes registrarte para que te permitan el acceso.</p>
+    }
+    <div>
+        <button (click)="cambiarAutenticacion()">
+            @if (autenticado === true) {
+                Cerrar sesión
+            } @else {
+                Iniciar sesión
+            }
+        </button>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando lista de nombres usando expresiones regulares</title>
+    <script>
+        //cadena original
+        var nombres = "Pedro Picapiedra; Pablo Marmol; Roger Federer; Rafael Nadal; Andy Murray";
+        //Arreglo de salida
+        var salida = ["Cadena original: " + nombres];
+        //Expresion Regular para partir la cadena
+        var re = /\s*;\s*/;
+        //Dividir la cadena en un arreglo
+        var nombres_array = nombres.split(re);
+        //Resultado
+        salida.push("Nombres separados: " + nombres_array.join("; "));
+        //Expresion regular para separar nombres y apellidos
+        var re = /(\w+)\s+(\w+)/;
+        //ciclo para invertir los nombres
+        var nombres_invertidos = new Array();
+        for (var i = 0; i < nombres_array.length; i++) {
+            nombre_invertido = nombres_array[i].replace(re, "$2, $1");
+            nombres_invertidos.push(nombre_invertido);
+        }
+        salida.push("Nombres invertidos: " + nombres_invertidos.join("; "));
+        //Ordenar el arreglo
+        nombres_invertidos.sort();
+        salida.push("Nombres alfabeticos: " + nombres_invertidos.join("; "));
+        console.log(salida);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<div class="container flex">
+    <h2>Calculadora usando comunicación entre componentes</h2>
+<app-formulario-hijo (resultado)="recibirSuma($event)"></app-formulario-hijo>
+<app-resultado [resultadoEnviado]="resultadoRecibido"></app-resultado>
+</div>

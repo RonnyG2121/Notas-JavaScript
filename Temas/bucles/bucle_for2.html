@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>
+    // Rellenando un array con nombres de trabajadores
+    var trabajadores = new Array();
+    var persona = "";
+    while(persona != "salir") {
+    persona = prompt("Ingresa un nombre para el trabajador");
+    trabajadores.push(persona);
+    }
+    
+    trabajadores.pop();
+    // uso del bucle for
+    for(var i = 0; i < trabajadores.length; i++) {
+    document.write(trabajadores[i]);
+    document.write("<br>");
+    }
+
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle for2</title>
+</head>
+<body>
+    
+</body>
+</html>

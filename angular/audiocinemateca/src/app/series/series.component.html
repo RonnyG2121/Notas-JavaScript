@@ -1,0 +1,17 @@
+<h3>Series</h3>
+<div *ngIf="series && series.length > 0; else noSeries">
+  <ul class="lista-items">
+    <li *ngFor="let serie of paginatedSeries; let i = index">
+      <a [routerLink]="['/series', serie.id]">
+        {{ serie.titulo }} ({{ serie.anio }})
+      </a>
+    </li>
+  </ul>
+  <app-paginacion 
+    [totalItems]="series.length" 
+    [itemsPerPage]="itemsPerPage" 
+    [currentPage]="currentPage" 
+    (pageChange)="onPageChange($event)">
+  </app-paginacion>
+</div>
+<ng-template #noSeries><p>No hay series disponibles.</p></ng-template>

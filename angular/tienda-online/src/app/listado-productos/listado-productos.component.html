@@ -1,0 +1,13 @@
+<div class="container">
+
+    <h2>Lista de productos</h2>
+    <div>
+        <button class="btn-primary" (click)="agregarProducto()">Agregar un producto</button>
+    </div>
+
+    
+    @for (llave of getLlave(); track llave) {
+            <app-producto [producto]="productos[llave]" [llave]="llave"></app-producto>
+        }
+    
+</div>

@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <form action="/add-task" method="POST">
+        {% set fields = [
+            { id: "nombre", name: "nombre", label: "Nombre de la tarea", type: "text", placeholder: "Ingrese el nombre de la tarea", required: "required", aria_required: "true" },
+            { id: "descripcion", name: "descripcion", label: "Descripción", type: "text", placeholder: "Ingrese la descripción", required: "required", aria_required: "true" },
+            { id: "completa", name: "completa", label: "Completada", type: "checkbox", required: "", aria_required: "false" }
+        ] %}
+        {% for field in fields %}
+            <div>
+                <label for="{{ field.id }}">{{ field.label }}:</label>
+                <input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}" {% if field.placeholder %} placeholder="{{ field.placeholder }}" {% endif %} {% if field.required %} required="{{ field.required }}" {% endif %} aria-required="{{ field.aria_required }}"></div>
+            {% endfor %}
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    {% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadenas | charAt()</title>
+	<meta charset="utf-8">
+	<script>
+		function caracteresInvalidos(cadena){
+			var invalidos = "áéíóúÁÍÓÚÑñ ()<>,;:[]ç%&";
+			var bandera = false;
+			for(i=0; i<invalidos.length; i++){
+				var c = invalidos.charAt(i);
+				if(cadena.indexOf(c)!=-1){
+					bandera = true;
+					break;
+				}
+			}
+			return bandera;
+		}
+		//Variables
+		var correo1 = "pacoarce@gmail.com.mx";
+		var correo2 = "Pacoarce@gmail.com.mx";
+		//PacoArce@gmail.com.mx
+		//012345678
+		var pos = correo2.indexOf("@");
+		console.log(pos);
+		var punto = correo2.indexOf(".",pos);
+		console.log(punto);
+		//Primera validación: longitud
+		if (correo1.length<10) {
+			document.write("La clave de acceso es muy corta<br>");
+		} else if(pos==-1){
+			document.write("El correo no tiene la arroba<br>");
+		} else if(punto==-1){
+			document.write("El correo debe de tener al menos un punto<br>");
+		} else if(caracteresInvalidos(correo2)){
+			document.write("El correo tiene caracteres inválidos<br>");
+		} else if (!(correo1.toUpperCase()==correo2.toUpperCase())) {
+			document.write("Las claves NO coinciden<br>");				
+		} else {
+			servicio = correo2.slice(pos+1).toLowerCase();
+			usuario = correo2.substr(0,pos).toLowerCase();
+			document.write("Tu servicio de correo es: <b>"+servicio+"</b><br>");
+			document.write("Tu usuatrio de correo es: <b>"+usuario+"</b><br>");
+			document.write("Las claves coinciden<br>");
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

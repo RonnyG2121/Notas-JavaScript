@@ -1,0 +1,26 @@
+{
+  "name": "kenshossg",
+  "version": "0.1.0",
+  "description": "Esto es un mini  generador de sitios estáticos, para construir sitios webs estáticos usando nunjucks y markdown para compilarlo a html",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssg",
+    "node.js",
+    "kensho"
+  ],
+  "author": "Ronny Gonzalez <yordemblo@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "front-matter": "^4.0.2",
+    "markdown-it": "^14.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7",
+    "nunjucks": "^3.2.4"
+  }
+}

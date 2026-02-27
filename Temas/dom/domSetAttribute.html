@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Document Object Model</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		//recuperamos los li
+		var misLI = document.getElementsByTagName("li");
+		console.log("El número de elementos de tipo lista es de: "+misLI.length);
+
+		var miDOM = document.getElementById("dom");
+		console.log("El tipo de nodo de DOM es: "+miDOM.nodeType);
+
+		//cambiamos el atributo de dom
+		miDOM.setAttribute("class","rojo");
+
+	}
+	</script>
+	<style>
+		.rojo{
+			color:red;
+			font-size:3em;
+		}
+
+	</style>
+</head>
+<body>
+<h1>Esta es una página HTML</h1>
+<p>Las siglas DOM significan:</p>
+<ul id="dom">
+	<li>Document</li>
+	<li>Object</li>
+	<li>Model</li>
+</ul>
+</body>
+</html>

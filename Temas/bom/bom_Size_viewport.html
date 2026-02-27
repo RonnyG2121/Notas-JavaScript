@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bom | Size</title>
+	<meta charset="utf-8">
+	<script>
+	window.onload = function(){
+		var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		document.getElementById("salida").innerHTML = "Dimensiones del viewport son "+w+" ancho y "+h+" altura en pixeles y las dimensiones externas son "+window.outerWidth+" de ancho y "+window.outerHeight+" de altura en piexeles";
+	}
+	</script>
+</head>
+<body>
+<div id="salida"></div>
+</body>
+</html>

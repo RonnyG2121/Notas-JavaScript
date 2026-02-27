@@ -1,0 +1,9 @@
+<h2>Página de Dragon Ball Super</h2>
+<div class="container">
+    <div class="row">
+<character-add (newCharapter)="charactersService.addCharacter($event)"></character-add >
+            <div class="col">
+                <dragon-ball-character-list [characters]="charactersService.characters()" listNames="Listado de personajes"></dragon-ball-character-list>
+            </div>
+
+</div>

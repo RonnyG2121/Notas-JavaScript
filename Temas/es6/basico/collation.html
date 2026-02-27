@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Collation</title>
+	<script>
+		// En alemán  "ä" se ordena junto a "a"
+		// En Sueco, "ä" se ordena después de a "z"
+		var lista = [ "ä", "a", "z" ];
+		var l10nDE = new Intl.Collator("de");
+		var l10nSV = new Intl.Collator("sv");
+		console.log(l10nDE.compare("ä", "z"));
+		console.log(l10nSV.compare("ä", "z"));
+		console.log(lista.sort(l10nDE.compare)); // [ "a", "ä", "z" ]
+		console.log(lista.sort(l10nSV.compare)); // [ "a", "z", "ä" ]
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback Hell</title>
+  <script>
+    var animales = [
+    {id:1, nombre:"perro"},
+    {id:2, nombre:"gato"},
+    {id:3, nombre:"tortuga"}];
+
+    var alimentos = [
+    {id:1, alimento:"carne"},
+    {id:2, alimento:"leche"}];
+
+    var getAnimal = function(id,callback){
+      for(var i=0; i < animales.length; i++){
+        if (id == animales[i].id) {
+          callback(null, animales[i]);
+          return;
+        }
+      }
+      callback("No existe el animal con id " + id);
+    }
+
+    var getAlimento = function(animal,callback){
+      for(var i=0; i < alimentos.length; i++){
+        if (animal.id==alimentos[i].id) {
+          callback(null,{
+            nombre: animal.nombre,
+            alimento: alimentos[i].alimento,
+            id: animal.id
+          });
+          return;
+        }
+      }
+      callback("No existe el alimento para "+animal.nombre);
+    }
+
+    getAnimal(4,function(err, animal){
+      if(err){
+        return console.log(err);
+      }
+      
+      getAlimento(animal, function(err, respuesta){
+        if(err){
+          return console.log(err);
+        }
+        console.log("El alimento de ",respuesta.nombre," es:",respuesta.alimento);
+
+        
+      });
+    });
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 54,
+        "name": "Goku",
+        "power": 10000
+    },
+    {
+        "id": 65,
+        "name": "Vegeta",
+        "power": 10500
+    },
+    {
+        "id": 60,
+        "name": "Pikolo",
+        "power": 7500
+    },
+    {
+        "id": 0,
+        "name": "Yamcha",
+        "power": 500
+    },
+    {
+        "id": 58,
+        "name": "Gohan",
+        "power": 5000
+    },
+    {
+        "id": 18,
+        "name": "Goten",
+        "power": 3000
+    },
+    {
+        "id": 29,
+        "name": "Trunks",
+        "power": 3500
+    }
+]

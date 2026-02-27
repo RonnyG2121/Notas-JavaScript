@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos | onkeydown y onkeyup</title>
+	<meta charset="utf-8">
+	<script>
+	var caja;
+	window.onload = function(){
+		caja = document.getElementById("caja");
+		//detectamos el evento onkeyup
+		caja.onkeyup = function(){
+			var valor = caja.value;
+			caja.value = valor.toUpperCase();
+			var salida = "";
+			for (var i = 0; i < valor.length; i++) {
+				salida = valor[i]+salida;
+			}
+			document.getElementById("salida").innerHTML = salida.toLowerCase();
+		}
+	}	
+	</script>
+	
+</head>
+<body>
+<input type="caja" id="caja"/>
+<p id="salida"></p>
+</body>
+</html>

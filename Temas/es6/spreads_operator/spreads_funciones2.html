@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spreads funciones</title>
+	<script>
+		function multiplicapor(multiplicador, ...numeros) {
+		  return numeros.map(function(elemento) {
+		    return multiplicador * elemento;
+		  });
+		}
+
+		var salida = multiplicapor(2, 2, 3, 4); 
+		console.log(salida); // [2, 4, 6]
+	</script>
+</head>
+<body>
+
+</body>
+</html>

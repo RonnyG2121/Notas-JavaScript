@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sincronizar dos combo box con JavaScript</title>
+	<script>
+		/**************
+		Variables
+		***************/
+		var paises_array = new Array("Seleccione un país","México","España","Colombia");
+		var ciudad0_array = new Array("Selecciona una ciudad");
+		var ciudad1_array = new Array("Selecciona una ciudad","CDMX","Guadalajara","Monterrey");
+		var ciudad2_array = new Array("Selecciona una ciudad","Madrid","Valencia","Barcelona");
+		var ciudad3_array = new Array("Selecciona una ciudad","Bogotá","Barranquilla","Cali");
+		//Arreglos de arreglos
+		var ciudad_array = new Array(ciudad0_array,ciudad1_array,ciudad2_array,ciudad3_array);
+		//Apuntadores para los combobox
+		var pais_cb, ciudad_cb;
+		/************
+		I n i c i o
+		*************/
+		window.onload = function () {
+			// Referencias a los combobox
+			pais_cb = document.getElementById("pais");
+
+			//Limpiar el combobox del pais
+			while(pais_cb.length>0) pais_cb.remove(0);
+
+			//Poblamos el combobox del país
+			for (var i = 0; i < paises_array.length; i++) {
+				crearOpcion(pais_cb, i, paises_array[i])
+			}
+
+			//Detectamos el evento
+			pais_cb.onchange = function() {
+				//Referencias al combo ciudad
+				ciudad_cb = document.getElementById("ciudad");
+
+				//Limpiar el combo de ciudades
+				while(ciudad_cb.length>0) ciudad_cb.remove(0);
+
+				//Detectar el pais seleccionado
+				miPais = pais_cb.selectedIndex;
+
+				//Poblamos el combobox del país
+				for (var i = 0; i < ciudad_array[miPais].length; i++) {
+					crearOpcion(ciudad_cb, i, ciudad_array[miPais][i])
+				}
+			}
+		}
+		/****************
+		F u n c i o n e s
+		*****************/
+		function crearOpcion(combo, indice, valor) {
+			var miOpcion = new Option(valor, String(indice));
+			eval(combo.options[indice]=miOpcion);
+		}
+	</script>
+</head>
+<body>
+<select id="pais">
+	<option value="nada">Selecciona un país</option>
+</select>
+<select id="ciudad">
+	<option value="nada">Selecciona una ciudad</option>
+</select>
+</body>
+</html>

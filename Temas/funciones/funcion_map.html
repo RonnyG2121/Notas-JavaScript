@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función map</title>
+</head>
+
+<body>
+
+    <script>
+        var kvArray = [
+            { clave: 1, valor: 10 },
+            { clave: 2, valor: 20 },
+            { clave: 3, valor: 30 },
+        ];
+
+        var reformattedArray = kvArray.map(function (obj) {
+            var rObj = {};
+            rObj[obj.clave] = obj.valor;
+            console.log(rObj);
+            return rObj;
+        });
+
+        // reformattedArray es ahora [{1:10}, {2:20}, {3:30}],
+
+        // kvArray sigue siendo:
+        // [{clave:1, valor:10},
+        //  {clave:2, valor:20},
+        //  {clave:3, valor: 30}]
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios DOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css"
+        integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="src/index.js" type="module"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <a class="link-logo" id="logo" href="https://github.com/RonnyG2121" target="_blank" rel="noopener">
+            <strong>Visita mi GitHub</strong>
+        </a>
+        <button class="hamburger hamburger--collapse is-active panel-btn" type="button" aria-label="Menú De Navegación "
+            aria-controls="navigation" aria-expanded="false">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <aside class="panel" aria-hidden="">
+            <nav class="menu">
+                <div id="navigation">
+                    <a href="#s1" data-scroll-spy>Link1</a>
+                    <a href="#s2" data-scroll-spy>Link2</a>
+                    <a href="#s3" data-scroll-spy>Link3</a>
+                    <a href="#s4" data-scroll-spy>Link4</a>
+                    <a href="#s5" data-scroll-spy>Link5</a>
+                </div>
+            </nav>
+        </aside>
+    </header>
+    <main>
+        <div>
+            <button type="button" class="btn-tema" role="button">Activar tema oscuro 🌙 </button>
+        </div>
+
+        <section class="section" data-scroll-spy id="s1">
+            <h2>Reloj y alarma sonora</h2>
+            <button type="button" id="reloj">Iniciar Reloj</button>
+            <div id="pantalla_reloj"></div>
+            <div>
+                <input type="number" name="" id="valor_ms"
+                    placeholder="elija en cuantos milisegundos se activará la alarma">
+            </div>
+            <button type="button" id="alarma">Iniciar alarma</button>
+
+        </section>
+        <section class="section" data-scroll-spy id="s2">
+            <h2>Sección 2</h2>
+        </section>
+        <section class="section" data-scroll-spy id="s3">
+            <h2>Cuenta regresiva</h2>
+            <div id="cuenta_atras">
+            </div>
+        </section>
+        <section class="section" data-scroll-spy id="s4">
+            <h2>Responsive</h2>
+            <div id="video_youtube">
+
+            </div>
+            <div id="mapa_google"></div>
+        </section>
+        <section class="section" data-scroll-spy id="s5">
+            <h2>Responsive test</h2>
+            <form id="test">
+                <input type="url" name="direccion" required placeholder="URL">
+                <br>
+                <input type="number" name="ancho" required placeholder="Ancho">
+                <br>
+                <input type="number" name="alto" required placeholder="Alto">
+                <br>
+                <input type="submit" name="enviar" value="probar">
+                <br>
+                <input type="button" name="cerrar" value="cerrar la ventana">
+            </form>
+        </section>
+        <section id="s6" class="section" data-scroll-spy>
+            <h2>Detección de dispositivos</h2>
+            <div id="user_device">
+            </div>
+        </section>
+        <section id="s7" class="section" data-scroll-spy>
+            <h2>Detección de la red</h2>
+
+        </section>
+        <section id="s8" class="section" data-scroll-spy>
+            <h2>Detección de la WebCam</h2>
+            <video id="my_webcam" src=""></video>
+        </section>
+        <section id="s9" class="section" data-scroll-spy>
+            <h2>Detección de la geolocalización</h2>
+            <div id="location"></div>
+        </section>
+        <section id="s10" class="section" data-scroll-spy>
+            <h2>fíltro de búsqueda</h2>
+            <input type="search" class="card-filter" id="" placeholder="Buscar...">
+            <article class="cards">
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/nature" alt="Nature">
+                    <figcaption>Nature</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/any" alt="Any">
+                    <figcaption>Any</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/tech" alt="Tech">
+                    <figcaption>Tech</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/animals" alt="Animals">
+                    <figcaption>Animals</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/people" alt="People">
+                    <figcaption>People</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="https://placeimg.com/200/200/arch" alt="Architecture">
+                    <figcaption>Architecture</figcaption>
+                </figure>
+            </article>
+        </section>
+        <section id="s11" class="section" data-scroll-spy">
+            <h2>Sorteo</h2>
+            <ul class="players">
+                <li class="player">Python</li>
+                <li class="player">C++</li>
+                <li class="player">C#</li>
+                <li class="player">PHP</li>
+                <li class="player">JavaScript</li>
+                <li class="player">kotlin</li>
+                <li class="player">Go</li>
+                <li class="player">C</li>
+                <li class="player">Ruby</li>
+                <li class="player">Dart</li>
+            </ul>
+            <button id="ganador-btn">Obtener Ganador</button>
+        </section>
+        <section id="s12" class="section" data-scroll-spy="">
+            <h2>Responsive Slider</h2>
+            <div class="slider">
+                <div class="slider-slides">
+                    <div class="slider-slide active">
+                        <img src="https://placeimg.com/400/400/animals" alt="animals">
+                    </div>
+                    <div class="slider-slide">
+                        <h4>diapositiva 2</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quidem voluptate aperiam
+                            quasi animi,
+                            ex earum iure tenetur ad corporis saepe exercitationem ab doloribus tempore consequuntur.
+                            Minus nostrum
+                            blanditiis dolore.</p>
+                    </div>
+                    <div class="slider-slide">
+                        <img src="https://placeimg.com/400/400/nature" alt="nature">
+                    </div>
+                    <div class="slider-slide">
+                        <h4>Diapositiva 4</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus perferendis totam enim
+                            quam vel veniam
+                            impedit rem quod laboriosam, maxime illo asperiores, illum eius. Nam libero quas ipsum et
+                            esse.</p>
+                    </div>
+                </div>
+                <div class="slider-btns">
+                    <a class="prev" href="#">Anterior diapositiva &laquo;</a>
+                    <a class="next" href="#">Siguiente diapositiva &raquo;</a>
+                </div>
+            </div>
+
+        </section>
+        <section id="s13" class="section" data-scroll-spy>
+            <h2>Video inteligente</h2>
+            <video src="videos/video.mp4" controls loop data-smart-video></video>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <video src="videos/video.mp4" controls loop data-smart-video=""></video>
+
+        </section>
+        <section id="s14" class="section" data-scroll-spy>
+            <h2>Validaciones de formularios</h2>
+            <form class="form-contacto">
+                <legend>Contáctanos aquí</legend>
+
+                <label for="id_nombre">Nombre</label>
+                <input type="text" name="nombre" id="id_nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                    placeholder="Nombre" title="Este campo es requerido" required>
+                    <label for="id_correo">Correo Electrónico</label>
+                <input type="email" name="correo" id="id_correo" placeholder="Correo electrónico" title="Este campo es requerido"
+                    pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z])$" required>
+                    <label for="id_asunto">Asunto</label>
+                <input type="text" name="asunto" id="id_asunto" placeholder="Asunto" title="Este campo es requerido" required>
+                <label for="id_comentario">Comentario</label>
+                <textarea data-patron="^.{1,500}$" name="comentario" id="id_comentario" cols="50" rows="5" placeholder="Comentario"
+                    title="Máximo 500 caracteres. Este campo es requerido" required></textarea>
+                <input type="submit" id="id_enviar" value="enviar">
+                <div class="form-contacto-cargando none" role="alert">
+                    <img src="imgs/loader.svg" alt="Cargando...">
+                </div>
+
+                <div class="form-contacto-respuesta none" role="alert">
+                    <p >Los datos han sido enviados</p>
+                </div>
+
+            </form>
+        </section>
+        <section id="s15" class="section" data-scroll-spy>
+            <h2>Narrador de voz</h2>
+            <select name="" id="speech_select" >
+                <option value="">Elija una voz</option>
+            </select>
+                <br><br>
+                <textarea name="name_text" id="id_text" cols="50" rows="5" placeholder="escribe aquí"></textarea>
+                <br><br>
+                <button id="btn_hablar">Hablar</button>
+
+            </select>
+        </section>
+    </main>
+    <button type="button" class="scroll-top-btn hidden">Volver al inicio &#11014;</button>
+
+</body>
+
+</html>

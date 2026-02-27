@@ -1,0 +1,17 @@
+<h3>Documentales</h3>
+<div *ngIf="documentales && documentales.length > 0; else noDocumentales">
+  <ul class="lista-items">
+    <li *ngFor="let documental of paginatedDocumentales; let i = index">
+      <a [routerLink]="['/documentales', documental.id]">
+        {{ documental.titulo }} ({{ documental.anio }})
+      </a>
+    </li>
+  </ul>
+  <app-paginacion 
+    [totalItems]="documentales.length" 
+    [itemsPerPage]="itemsPerPage" 
+    [currentPage]="currentPage" 
+    (pageChange)="onPageChange($event)">
+  </app-paginacion>
+</div>
+<ng-template #noDocumentales><p>No hay documentales disponibles.</p></ng-template>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con AJAX</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>CRUD api rest usando AJAx</h1>
+    <section id="id_crud">
+        <article>
+            <h2 class="titulo-crud">Agregar frutas</h2>
+            <form class="form-crud">
+                <label for="id_nombre">Nombre</label>
+                <input type="hidden" name="id">
+                <input type="text" name="nombre" id="id_nombre" placeholder="Nombre" required>
+                <label for="id_precio">Precio</label>
+                <input type="number" name="precio" id="id_precio" placeholder="Precio" required>
+                <input type="submit" id="btn_enviar" value="Enviar">
+
+            </form>
+        </article>
+
+        <article>
+            <h2>Ver frutas</h2>
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </article>
+    </section>
+    <template id="crud_template">
+        <tr>
+            <td class="datos-nombre"></td>
+            <td class="datos-precio"></td>
+            <td>
+                <button class="btn-editar">Editar</button>
+                <button class="btn-eliminar">Eliminar</button>
+            </td>
+        </tr>
+
+    </template>
+
+    <script src="app_ajax.js"></script>
+</body>
+
+</html>

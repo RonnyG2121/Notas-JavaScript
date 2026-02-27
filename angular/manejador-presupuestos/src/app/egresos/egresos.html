@@ -1,0 +1,23 @@
+<!-- Componente: Egresos -->
+<div class="col-md-6">
+  <h2 class="text-center text-primary">egresos</h2>
+  <ul class="list-group mt-3">
+    @for (egreso of egresos; track egreso) {
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="flex-grow-1">{{egreso.descripcion}}</span>
+      <span class="text-success mx-3">
+        {{egreso.precio | currency:'USD':'$':'1.2-2'}}
+      </span>
+      <span></span>
+      <span class="badge bg-success ms-2">
+        {{calculaPorcentaje(egreso) | percent}}
+      </span>
+      <button class="btn btn-sm btn-danger" (click)="eliminarRegistro(egreso)">
+        eliminar {{egreso.descripcion}}
+        <i class="bi bi-x-circle"></i> <!-- Bootstrap Icon -->
+      </button>
+    </li>
+
+    }
+  </ul>
+</div>

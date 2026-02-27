@@ -1,0 +1,12 @@
+// import './style.css'
+// import typescriptLogo from './typescript.svg'
+// import viteLogo from '/vite.svg'
+// import { setupCounter } from './counter.ts'
+// import './temas/01-basicstipos'
+// import './temas/02-objetos-interfaces'
+// import './temas/03-funciones'
+// import './temas/04-tarea-homework'
+// import './temas/05-destructuring'
+// import './temas/06-destructuring-arguments'
+import './temas/07-import-export'
+

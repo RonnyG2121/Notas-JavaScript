@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expresiones Regulares</title>
+	<script>
+		//var re = /\w+\s/g;
+		var re = new RegExp ( "\\w+\\s", "g");
+		var str = "En el agua clara que brota en la fuente ";
+		var myArray = str.match(re);
+		console.log (myArray);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON 01</title>
+<script>
+window.onload = function(){
+	//Creamos la cadena con formato JSON
+	var alumno = '{"nombre": "James", "apellido": "Bond", "clave": "007", "ciudad": "Londres"}';
+	//Analizamos
+	var agente = JSON.parse(alumno);
+	//Salida de la informacion
+	document.getElementById("salida").innerHTML = "<p>Bienvenido agente " +
+	agente.nombre+", "+
+	agente.apellido+", con clave "+
+	agente.clave+", asignado "+
+	agente.ciudad+"<br>";
+}
+</script>
+</head>
+
+<body>
+<div id="salida"></div>
+
+</body>
+</html>

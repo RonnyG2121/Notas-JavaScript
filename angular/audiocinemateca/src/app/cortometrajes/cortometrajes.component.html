@@ -1,0 +1,17 @@
+<h3>Cortometrajes</h3>
+<div *ngIf="cortometrajes && cortometrajes.length > 0; else noCortometrajes">
+  <ul class="lista-items">
+    <li *ngFor="let cortometraje of paginatedCortometrajes; let i = index">
+      <a [routerLink]="['/cortometrajes', cortometraje.id]">
+        {{ cortometraje.titulo }} ({{ cortometraje.anio }})
+      </a>
+    </li>
+  </ul>
+  <app-paginacion 
+    [totalItems]="cortometrajes.length" 
+    [itemsPerPage]="itemsPerPage" 
+    [currentPage]="currentPage" 
+    (pageChange)="onPageChange($event)">
+  </app-paginacion>
+</div>
+<ng-template #noCortometrajes><p>No hay cortometrajes disponibles.</p></ng-template>

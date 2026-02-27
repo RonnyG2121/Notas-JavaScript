@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Menú de navegación</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menú de navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" >Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/servicios" routerLinkActive="active">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tienda" routerLinkActive="active">Tienda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/calculadora" routerLinkActive="active">Calculadora</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">Listado de usuarios de jsonplaceholder</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/saludar" routerLinkActive="active"
+          [queryParams]="{saludo: ''}"
+          >Saludar desde ruta con variables</a>
+        </li>
+
+        <!-- Creando un submenú -->
+                     <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['/rutas-hijas/padre']"
+                            routerLinkActive="active">Padre</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['/rutas-hijas/hijo']"
+                            routerLinkActive="active">Hijo</a>
+                    </li>
+                </ul>
+            </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

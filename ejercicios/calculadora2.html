@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Calculadora</title>
+	<meta charset="utf-8">
+	<style>
+		input[type=button], input[type=text]{
+			width: 100%;
+			height: 100%;
+			font-size: 30px;
+			background: orange;
+		}
+		table, form{
+			width: 500px;
+			height: 400px;
+			margin:0 auto;
+		}
+	</style>
+	<script>
+	window.onload = function() {
+		var signos = "+-*/";
+		var x = new Array();
+		document.getElementById("valor").onkeypress = function(event){
+			numeros(event);
+		}
+		x = document.querySelectorAll("input[type=button]");
+		for (var i = 0; i < x.length; i++) {
+			x[i].onclick = function(){
+				let n = this.value;
+				if (n=="C") {
+					borrar();
+				} else if(n=="<"){
+					borrarCaracter();
+				} else if (n=="=") {
+					calcular();
+				} else if(signos.indexOf(n)>-1){
+					validaSigno(n);
+				} else {
+					regresar(n);
+				}
+			}
+		}
+	}
+
+	/*****************
+	F U N C I O N E S
+	******************/
+	function numeros(e){
+		let tecla = e.keyCode;
+		let teclado = String.fromCharCode(tecla);
+		let especiales = new Array();
+		especiales["backspace"] = 8;
+		especiales["izquierda"] = 37;
+		especiales["derecha"] = 39;
+		let bandera = false;
+		let cadena_Numeros = "0123456789.";
+		//
+		bandera = especiales.hasOwnProperty(tecla);
+		//
+		if(cadena_Numeros.indexOf(teclado)==-1 && bandera==false){
+			return false;
+		}
+	}
+
+	function borrar(){
+		document.forma.valor.value = "";
+		// console.log("Borrar");
+	}
+
+	function borrarCaracter(){
+		let anterior = document.forma.valor.value;
+		let nuevo = anterior.substring(0,anterior.length-1);
+		document.getElementById("valor").value=nuevo;
+		// console.log("Borrar caracter");
+	}
+
+	function calcular(){
+		let resultado = eval(document.forma.valor.value);
+		if (resultado=="Infinity") {
+			document.forma.valor.value = "No podemos dividir entre cero";
+		} else {
+			document.forma.valor.value = resultado;
+		}
+		// console.log("Calcular");
+	}
+
+	function validaSigno(n){
+		let anterior = document.getElementById("valor").value;
+		if(anterior != "") {
+			document.getElementById("valor").value = anterior + n;
+			let cadena = document.getElementById("valor").value;
+	
+			let record = 0;
+			let igual = 1;
+	
+			for (var a = 1; a < cadena.length; a++) {
+				if(cadena.charAt(a)=="+" || 
+					cadena.charAt(a)=="-" || 
+					cadena.charAt(a)=="*" ||
+					cadena.charAt(a)=="." || 
+					cadena.charAt(a)=="/"){
+					igual++;
+				} else {
+					if (igual>record) {
+						record = igual;
+					} else {
+						igual = 1;
+					}
+				}
+				if (igual>record) {
+					record = igual;
+				}
+				if(record>2){
+					var numero = cadena.substring(0,cadena.length-1);
+					document.getElementById("valor").value = numero;
+					record=0; igual = 1;
+				}
+			}
+		}
+	}
+
+	function regresar(n){
+		let anterior = document.forma.valor.value;
+		let nuevo = anterior+n;
+		document.getElementById("valor").value=nuevo;
+		// console.log("regresar número");
+	}
+
+	/* 
+*/
+</script>
+
+</head>
+<body>
+<form id="forma" name="forma">
+	<table>
+		<tr>
+			<td colspan="5">
+				<input type="text" id="valor" name="valor" aria-label="Pantalla">
+				</td>
+				</tr>
+
+		<tr>
+			<td><input type="button" value="7"></td>
+			<td><input type="button" value="8"></td>
+			<td><input type="button" value="9"></td>
+			<td>
+				<input type="button" value="+" aria-label="Suma"></td>
+			<td><input type="button" value="-" aria-label="Resta">
+			</td>
+		</tr>
+
+		<tr>
+			<td><input type="button" value="4">
+			</td>
+			<td><input type="button" value="5"></td>
+			<td><input type="button" value="6"></td>
+			<td><input type="button" value="*" aria-label="Multiplicar por"></td>
+			<td><input type="button" value="/" aria-label="Dividir entre">
+			</td>
+		</tr>
+
+		<tr>
+			<td><input type="button" value="1">
+			</td>
+			<td><input type="button" value="2"></td>
+			<td><input type="button" value="3"></td>
+			<td><input type="button" value="<" aria-label="Limpiar por carácter"></td>
+			<td><input type="button" value="C" aria-label="Limpiar todo">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="0"></td>
+			<td></td>
+			<td colspan="2"><input type="button" value="=" aria-label="Es igual a"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- Componente: Formulario -->
+<div class="row justify-content-center mt-4">
+  <div class="col-md-8">
+    <form class="row g-2"
+    #formulario="ngForm" (ngSubmit)="formulario.form.valid && agregar($event)">
+      <div class="col-auto">
+        <select
+        class="form-select"
+        [ngClass]="{'bg-danger': tipo === 'egresoOperacion',
+          'bg-success': tipo === 'ingresoOperacion'}"
+          (change)="cambiarOpcion($event)">
+    <option value="ingresoOperacion" selected>+Ingresos</option>
+          <option value="egresoOperacion">-Egresos</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Descripción" required
+        [(ngModel)]="descripcion" name="descripcion"
+        [ngClass]="{'bg-danger': tipo === 'egresoOperacion',
+          'bg-success': tipo === 'ingresoOperacion'}"/>
+      </div>
+      <div class="col-auto">
+        <input type="number" class="form-control" placeholder="Precio" required
+        [(ngModel)]="precio" name="precio"
+        [ngClass]="{'bg-danger': tipo === 'egresoOperacion',
+          'bg-success': tipo === 'ingresoOperacion'}"/>
+      </div>
+      <div class="col-auto">
+        <button type="submit"
+        [ngClass]="{'bg-danger': tipo === 'egresoOperacion',
+          'bg-success': tipo === 'ingresoOperacion'}">
+          Agregar elemento
+          <i class="bi bi-check-circle"></i> <!-- Bootstrap Icon -->
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

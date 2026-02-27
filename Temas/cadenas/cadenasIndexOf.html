@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadenas | indexOf()</title>
+	<meta charset="utf-8">
+	<script>
+		var correo1 = "pacoarce@gmail.com.mx";
+		var correo2 = "PacoArce@gmail.com.mx";
+		//PacoArce@gmail.com.mx
+		//012345678
+		var pos = correo2.indexOf("@");
+		console.log(pos);
+		var punto = correo2.indexOf(".",pos);
+		console.log(punto);
+		//Primera validación: longitud
+		if (correo1.length<10) {
+			document.write("La clave de acceso es muy corta<br>");
+		} else if(pos==-1){
+			document.write("El correo no tiene la arroba<br>");
+		} else if(punto==-1){
+			document.write("El correo debe de tener al menos un punto<br>");
+		} else if (!(correo1.toUpperCase()==correo2.toUpperCase())) {
+			document.write("Las claves NO coinciden<br>");				
+		} else {
+			document.write("Las claves coinciden<br>");
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

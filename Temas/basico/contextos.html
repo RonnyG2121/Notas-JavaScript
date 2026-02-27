@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contextos</title>
+	<script>
+		// console.log(this);
+
+		var x = 1;
+
+		function funcion1() {
+			function funcion2() {
+				console.log(x);
+			}
+			var x = 10;
+			funcion2();
+		}
+
+		funcion1();
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

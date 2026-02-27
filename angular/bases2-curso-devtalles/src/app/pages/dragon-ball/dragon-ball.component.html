@@ -1,0 +1,31 @@
+<h2>Página de Dragon Ball</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Agregar personaje</h3>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa un Nombre" [value]="" #textName
+                (input)="name.set(textName.value)">
+            </div>
+            <div class="mb-3">
+                <label for="poder" class="form-label">Poder</label>
+                <input type="number" class="form-control" id="poder" placeholder="Ingresa el poder" [value]="power()" #textPower
+                (input)="power.set(textPower.valueAsNumber)">
+            </div>
+            <button class="btn btn-primary" (click)="addCharapter()">Agregar</button>
+        </div>
+        <div class="col">
+            <h3>Lista</h3>
+            <ol class="list-group">
+                @for (charapter of charapters(); track charapter.id) {
+                @if (charapter.power >500) {
+                <li class="list-group-item"
+                    [ngClass]="{'text-danger': charapter.power >9000, 'text-primary': charapter.power < 9000}">
+                    {{charapter.name}}: {{charapter.power}}</li>
+                }
+                }
+            </ol>
+        </div>
+    </div>
+</div>

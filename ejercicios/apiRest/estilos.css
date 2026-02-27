@@ -1,0 +1,13 @@
+/* Estilos para la página del crud con ajax, fetch y axios */
+
+* {
+    display: block;
+    background-color: #000000;
+    color: #fff;
+    font-size: small;
+}
+
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manejo de cookies</title>
+	<script>
+		window.onload = function(){
+			if (localStorage.politica>0) {
+				document.getElementById("galletas1").style.bottom = "-50px";
+			}
+			document.getElementById("aceptar").onclick = function(){
+				localStorage.politica = (localStorage.politica || 0);
+				localStorage.politica++;
+				galletas1.style.display = 'none';
+			}
+		}
+	</script>
+	<style>
+		@keyframes bajar{
+			0%		{bottom: 0px;}
+			80%		{bottom: 0px;}
+			100%	{bottom: -50px;}
+		}
+		@keyframes subir{
+			0%		{bottom: -38px;}
+			10%		{bottom: 0px;}
+			80%		{bottom: 0px;}
+			100%	{bottom: -38px;}
+		}
+		#galletas1:target{
+			display: none;
+		}
+		.galletas{
+			width: 100%;
+			height: 43px;
+			margin: 0 auto;
+			padding-left: 1%;
+			padding-top: 5px;
+			font-size: 1.2em;
+			clear: both;
+			font-weight: strong;
+			color: #333;
+			bottom: 0px;
+			position: fixed;
+			left: 0px;
+			background-color: orange;
+			opacity: 0.7;
+			filter:alpha(opacity=70);
+			transition: bottom 1s;
+			box-shadow: 3px -3px 1px rgba(50,50,50,0.5);
+			z-index: 99999999;
+		}
+		.galletas:hover{
+			bottom: 0px;
+		}
+		#galletas2{
+			background-color: orange;
+			display: inline;
+			opacity: 0.95;
+			position: absolute;
+			left:1%;
+			top:-30px;
+			font-size: 15px;
+			height: 30px;
+			padding-left: 25px;
+			padding-right: 25px;
+			border-top-right-radius: 15px;
+			border-top-left-radius: 15px;
+			box-shadow: 3px -3px 1px rgba(50,50,50,0.5);
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="galletas" id="galletas1">
+		Este sitio web utiliza cookies, puedes consultar nuestra <a href="#">política de cookies</a>. Si continúas navegando estás aceptándola <button id="aceptar">Aceptar</button>
+		<div id="galletas2" onmouseover="document.getElementById('galletas1').style.bottom = '0px';">Política de cookies
+		</div>
+	</div>
+</body>
+</html>

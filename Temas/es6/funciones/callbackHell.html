@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback Hell ES6</title>
+  <script>
+let animales = [
+  {id:1, nombre:"perro"},
+  {id:2, nombre:"gato"},
+  {id:3, nombre:"tortuga"}
+  ];
+
+let alimentos = [
+  {id:1, alimento:"carne"},
+{id:2, alimento:"leche"}];
+
+let getAnimal = function (id, callback) {
+  let animal = animales.find(animal=> animal.id === id);
+
+  if (animal) {
+    callback(null,animal);
+  } else {
+    callback("No existe ese animal",id);
+  }
+}
+
+let getAlimento = function (animal,callback) {
+  let alimento = alimentos.find(alimento => animal.id===alimento.id);
+
+  if (alimento) {
+    callback(null,{
+      nombre:animal.nombre,
+      alimento: alimento.alimento,
+      id: animal.id
+    });
+  } else {
+    callback("No existe alimento para ese animal",animal.id);
+  }
+}
+
+
+//llamado de la función con un callback
+getAnimal(6, (err,animal)=>{
+  if (err) {
+    return console.log(err);
+  }
+  //console.log(animal);
+  getAlimento(animal, (err,respuesta) =>{
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("El alimento de ",respuesta.nombre," es: ",respuesta.alimento);
+  });
+
+
+});
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+        <div class="col">
+            <h3>Agregar personaje</h3>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa un Nombre" [value]="" #textName
+                (change)="name.set(textName.value)">
+            </div>
+            <div class="mb-3">
+                <label for="poder" class="form-label">Poder</label>
+                <input type="number" class="form-control" id="poder" placeholder="Ingresa el poder" [value]="power()" #textPower
+                (input)="power.set(textPower.valueAsNumber)">
+            </div>
+            <button class="btn btn-primary" (click)="sendData()">Agregar</button>
+        </div>

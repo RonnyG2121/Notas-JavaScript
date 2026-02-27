@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arreglos | Poblar y Barrer un arreglo</title>
+	<meta charset="utf-8">
+	<script>
+		//variable asociada
+		var dias = new Array();
+		//crear un arreglo "al vuelo"
+		var meses = [];
+
+		//populate / poblar
+		dias[0] = "Domingo";
+		dias[1] = "Lunes";
+		dias[2] = "Martes";
+		dias[3] = "Miércoles";
+		dias[4] = "Jueves";
+		dias[5] = "Viernes";
+		dias[6] = "Sábado";
+
+		document.write("Hoy es el día "+dias[3]+"<br>");
+
+		//barrer el arreglo
+		for (var i = 0; i < dias.length; i++) {
+			document.write("Hoy es el día "+dias[i]+"<br>");
+		}
+
+		//arreglos por referencia o asociados
+		meses["enero"] = 473633;
+		meses["febrero"] = 6563463;
+		meses["marzo"] = 635226;
+
+		document.write("Alumnos inscritos en enero "+ meses["enero"] +"<br>");
+
+		for(alumnos in meses){
+			document.write("Alumnos inscritos en el mes de "+alumnos+" es de "+meses[alumnos]+"<br>");
+		}
+		document.write("<hr>");
+		var jugadores = new Array("Pepe", "Toño", "Gustavo", "Paco");
+		jugadores.push("Rafael");
+		for (var i = 0; i < jugadores.length; i++) {
+			document.write(jugadores[i]+"<br>");
+		}
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

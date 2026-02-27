@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proxy básico</title>
+	<meta charset="utf-8">
+	<script>
+
+		const DateProxy = new Proxy(Date,{
+			construct(target,args){
+				console.log("Creamos una fecha");
+				return new Date(...args);
+			}
+		});
+
+		let fecha = new DateProxy(2019,6,7);
+		console.log(fecha);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

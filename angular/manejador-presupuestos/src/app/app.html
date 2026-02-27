@@ -1,0 +1,10 @@
+<main>
+  <app-cabecera
+  [presupuestoDisponible]="getPresupuesto()"
+  [ingreso]="getIngresoTotal()"
+  [egreso]="getEgresoTotal()"
+  [porcentaje]="getPorcentaje()"></app-cabecera>
+  <app-formulario></app-formulario>
+  <app-ingresos></app-ingresos>
+  <app-egresos [ingresoTotal]="getIngresoTotal()"></app-egresos>
+</main>

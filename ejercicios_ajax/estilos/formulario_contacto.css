@@ -1,0 +1,93 @@
+/* Estilos para el formulario */
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+.form-contacto {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.form-contacto * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.form-contacto textarea {
+  resize: none;
+}
+
+.form-contacto legend,
+.form-contacto-respuesta {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-contacto label,
+.form-contacto input,
+.form-contacto textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.form-contacto input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-contacto *::placeholder {
+  color: #000;
+}
+
+.form-contacto[required]:valid {
+  border: thick solid var(--form-ok-color);
+}
+
+.form-contacto[required]:invalid {
+  border: thick solid var(--form-error-color);
+}
+
+.form-contacto-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  color: #fff;
+  transition: all 800ms ease;
+}
+
+.form-contacto-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+  display: none;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

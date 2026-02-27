@@ -1,0 +1,67 @@
+<div class="container">
+
+  <h2>Contenido principal</h2>
+  <p>Esta es la ruta por defecto.</p>
+  <h2>Usando el concepto de eventBilding</h2>
+  <button (click)="mostrarMensaje()">Mostrar Mensaje</button>
+  <button (click)="ocultarMensaje()">Ocultar mensaje</button>
+
+  <p>{{mensaje}}</p>
+
+  <h2>Concepto de propertyBilding</h2>
+  <div class="container flex">
+    <label for="texto">Escribe algo</label>
+    <input type="text" name="" id="texto" placeholder="Hola mundo" (input)="actualizarTexto($event)">
+  </div>
+
+  <div class="flex">
+    <label for="replicado">Texto replicado</label>
+    <input type="text" name="" id="replicado" [value]="texto" readonly>
+
+  </div>
+
+  <div class="container flex">
+    <h2>Usando el concepto de two way binding</h2>
+    <label for="n">Nombre</label>
+    <input type="text" id="n" [(ngModel)]="nombre" autocomplete="off">
+    <p>¡Hola {{ nombre }}!</p>
+
+  </div>
+
+  <div class="container">
+    <h2>Concepto de local reference</h2>
+    <div>
+      <label for="pais">Ingresa tu país</label>
+      <input type="text" name="" id="pais" placeholder="República Dominicana" #inputPais>
+    </div>
+    <div>
+      <button (click)="agregarPais(inputPais.value); inputPais.value = ''">Agregar a la lista</button>
+    </div>
+    <div>
+      @if (pais) {
+      <p>El país que agregaste es: {{pais}}.</p>
+      }
+    </div>
+  </div>
+
+  <div>
+    <h2>Uso de pipes</h2>
+    <div class="container my-4">
+      <h3 class="text-center text-primary">Lista de Empleados</h3>
+      <ul class="list-group w-50 mx-auto">
+        @for(empleado of empleados; track empleado){
+        <li class="list-group-item d-flex justify-content-between aling-items-center">
+          <div>
+            <h5 class="mb-1">{{empleado.nombre | uppercase}}</h5>
+          </div>
+            <small class="text-muted">
+              Fecha de Nacimiento: {{empleado.fechaNacimiento | date:'longDate'}}
+            </small>
+            <span class="badge bg-success">Sueldo:
+              {{empleado.sueldo | currency:'USD'}}
+            </span>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>

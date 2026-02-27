@@ -1,0 +1,28 @@
+<div>
+    <h2>Contador</h2>
+    <div>
+        <button (click)="incrementCounter()">Incrementar</button>
+    </div>
+    <p role="alert">Valor del contador: {{count}}</p>
+    <div>
+        <button (click)="decrementCounter()">Decrementar</button>
+    </div>
+
+    <div>
+        <button (click)="resetCounter()">Resetear</button>
+    </div>
+
+        <h2>Contador con signals</h2>
+    <div>
+        <button (click)="incrementCounterSignal()">Incrementar la signal</button>
+    </div>
+    <p role="alert">Valor de la signal: {{countSignal()}}</p>
+    <div>
+        <button (click)="decrementCounterSignal()">Decrementar la signal</button>
+    </div>
+
+    <div>
+        <button (click)="resetCounterSignal()">Resetear la signal</button>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Años pasados</title>
+<script>
+function annosPasados(fecha="") {
+    let fechaActual = new Date();
+    let fechaNacimiento = new Date(fecha);
+    let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+    let meseDiferencia = fechaActual.getMonth() - fechaNacimiento.getMonth();
+    if(meseDiferencia <= 0  && fechaActual.getDate() < fechaNacimiento.getDate()) {
+        edad--;
+    }
+    return `Tengo ${edad} años. al día ${fechaActual.getDate()} de ${fechaActual.getMonth() +1} del ${fechaActual.getFullYear()}`;
+}
+
+console.log(annosPasados(new Date("2000,6,12")));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

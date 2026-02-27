@@ -1,0 +1,13 @@
+        <div class="col">
+            <h3>{{listNames()}}</h3>
+            <ol class="list-group">
+                
+                @for (character of characters(); track character.id) {
+                @if (character.power >500) {
+                <li class="list-group-item"
+                    [ngClass]="{'text-danger': character.power >9000, 'text-primary': character.power < 9000}">
+                    {{character.name}}: {{character.power}}</li>
+                }
+                }
+            </ol>
+        </div>

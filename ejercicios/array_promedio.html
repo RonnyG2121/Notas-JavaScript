@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array que contiene una lista de números y devuelve su promedio</title>
+<script>
+const promedio = (arrPromedio = []) => {
+    let promedioMin = Math.min(...arrPromedio);
+    let promedioMax = Math.max(...arrPromedio);
+    let promedioFinal = (promedioMax + promedioMin) / 2;
+    return promedioFinal;
+}
+console.log(promedio([9,8,7,6,5,4,3,2,1,0]));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

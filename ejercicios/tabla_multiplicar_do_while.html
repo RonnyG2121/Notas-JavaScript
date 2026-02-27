@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de multiplicación hasta el 12 usando while</title>
+<script>
+var multiplo = 0;
+var acumulador = 0;
+var tabla = 1;
+var valor = prompt("Ingrese el valor de la tabla de multiplicar");
+
+do {
+    multiplo= valor * tabla;
+    document.write(valor + " por " + tabla + ": " + multiplo + ", ");
+    tabla++;
+} while (tabla <= 12);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

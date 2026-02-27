@@ -1,0 +1,6 @@
+<app-hijo [mensajeAHijo]="mensajePapa" (saludoDeHijo)="saludoEscuchado($event)">
+</app-hijo>
+@if (saludo) {
+    <h2>Saludo recibido</h2>
+    <p>{{saludo}}</p>
+}

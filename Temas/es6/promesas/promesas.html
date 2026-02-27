@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Promesas ES6</title>
+  <script>
+let animales = [
+  {id:1, nombre:"perro"},
+  {id:2, nombre:"gato"},
+  {id:3, nombre:"tortuga"}
+  ];
+let alimentos = [{id:1, alimento:"carne"},{id:2, alimento:"leche"}];
+
+//Get Animal
+let getAnimal = (id) => {
+  return new Promise((resolve,reject)=>{
+    let animal = animales.find(animal => animal.id==id);
+
+    if (animal) {
+      resolve(animal);
+    } else {
+      reject('No existe el animal con identificador '+id );
+    }
+  });
+}
+
+//get Alimento
+let getAlimento = (animal) => {
+  return new Promise((resolve,reject)=>{
+    let alimento = alimentos.find(alimento => animal.id==alimento.id);
+
+    if (alimento) {
+      resolve({
+        nombre:animal.nombre, 
+        alimento:alimento.alimento, 
+        id:animal.id
+      });
+    } else {
+      reject('No existe alimento para el animal con identificador '+animal.id );
+    }
+  });
+}
+//Llamado
+getAnimal(5).then(animal => {
+  return getAlimento(animal);
+}).then(respuesta => {
+  console.log("El alimento de ",respuesta.nombre," es: ",respuesta.alimento);
+}).catch( err => { 
+  console.log(err);
+});
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

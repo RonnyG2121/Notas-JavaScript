@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo 3</title>
+	<meta charset="utf-8">
+	<script>
+		function formatoNumero(numero, decimales, separadorDecimal, separadorMiles) {
+			numero = parseFloat(numero);
+			if(isNaN(numero)) return "";
+			//verificar los atributos
+			if(decimales!==undefined) numero = numero.toFixed(decimales);
+			//convertimos el punto en separadorDecimal
+			numero = numero.toString().replace(".", separadorDecimal!==undefined ? separadorDecimal : ",");
+			if(separadorMiles){
+				//Añadimos separador de miles
+				var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+				while(miles.test(numero)){
+					numero = numero.replace(miles, "$1"+separadorMiles+"$2");
+				}
+			}
+			//regresamos el resultado
+			return numero;
+		}
+		alert(formatoNumero(312313123456789.90,2,".",","));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

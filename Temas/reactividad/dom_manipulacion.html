@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación manual del DOM</title>
+</head>
+<body>
+    <h1>manipulación manual del DOM para la reactividad</h1>
+    <form id="form_tareas">
+        <input type="text" id="todotask" placeholder="Tareas por hacer">
+        <input type="submit"  value="Agregar">
+
+        <h2>Lista de tareas</h2>        
+        <ul id="lista_tareas"></ul>
+
+        <script>
+            const d = document,
+            input = d.getElementById("todotask"),
+            ul = d.getElementById("lista_tareas");
+
+            d.addEventListener("submit", (ev) => {
+                if (! ev.target.matches("#form_tareas")) {
+                    return false;
+                } else {
+                    ev.preventDefault();
+                    const li = d.createElement("li");
+                    li.textContent = input.value;
+                    ul.appendChild(li);
+                    input.value = "";
+                    input.focus();
+                }
+            })
+        </script>
+    </body>
+    </html>
+</form>d-grid

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Funciones callback</title>
+  <script>
+    function saludar(nombre){
+      alert("Hola "+nombre);
+    }
+
+    function despedir(nombre){
+      alert("Adios "+nombre);
+    }
+
+
+    function procesaNombre(miCallback){
+      var nombre = prompt("Escribe tu nombre");
+
+      miCallback(nombre);
+    }
+
+    procesaNombre(saludar);
+    procesaNombre(despedir);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

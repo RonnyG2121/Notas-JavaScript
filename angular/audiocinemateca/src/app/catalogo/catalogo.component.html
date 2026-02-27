@@ -1,0 +1,57 @@
+<h2>Catálogo de la Audiocinemateca</h2>
+
+<div *ngIf="catalog; else loadingCatalog">
+  <div class="tabs-container" role="tablist">
+    <button class="tab-button" 
+            [class.active]="selectedCategory === 'peliculas'" 
+            (click)="selectCategory('peliculas')"
+            role="tab"
+            [attr.aria-selected]="selectedCategory === 'peliculas'"
+            aria-controls="peliculas-panel">Películas</button>
+    <button class="tab-button" 
+            [class.active]="selectedCategory === 'series'" 
+            (click)="selectCategory('series')"
+            role="tab"
+            [attr.aria-selected]="selectedCategory === 'series'"
+            aria-controls="series-panel">Series</button>
+    <button class="tab-button" 
+            [class.active]="selectedCategory === 'cortometrajes'" 
+            (click)="selectCategory('cortometrajes')"
+            role="tab"
+            [attr.aria-selected]="selectedCategory === 'cortometrajes'"
+            aria-controls="cortometrajes-panel">Cortometrajes</button>
+    <button class="tab-button" 
+            [class.active]="selectedCategory === 'documentales'" 
+            (click)="selectCategory('documentales')"
+            role="tab"
+            [attr.aria-selected]="selectedCategory === 'documentales'"
+            aria-controls="documentales-panel">Documentales</button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Buscar por título o sinopsis..." [(ngModel)]="searchTerm" (input)="onSearchChange()">
+  </div>
+
+  <app-filtro-catalogo 
+    [generos]="uniqueGenres"
+    [ordenSeleccionado]="currentOrden"
+    [generoSeleccionado]="currentGenero"
+    [activeTab]="selectedCategory"
+    [peliculasMap]="originalPeliculasMap"
+    [seriesMap]="originalSeriesMap"
+    [cortometrajesMap]="originalCortometrajesMap"
+    [documentalesMap]="originalDocumentalesMap"
+    (ordenChange)="onOrdenChange($event)" 
+    (generoChange)="onGeneroChange($event)">
+  </app-filtro-catalogo>
+
+  <div class="tab-content">
+    <app-peliculas *ngIf="selectedCategory === 'peliculas'" [peliculas]="allPeliculas" id="peliculas-panel" role="tabpanel"></app-peliculas>
+    <app-series *ngIf="selectedCategory === 'series'" [series]="allSeries" id="series-panel" role="tabpanel"></app-series>
+    <app-cortometrajes *ngIf="selectedCategory === 'cortometrajes'" [cortometrajes]="allCortometrajes" id="cortometrajes-panel" role="tabpanel"></app-cortometrajes>
+    <app-documentales *ngIf="selectedCategory === 'documentales'" [documentales]="allDocumentales" id="documentales-panel" role="tabpanel"></app-documentales>
+  </div>
+</div>
+<ng-template #loadingCatalog>
+  <p>Cargando catálogo desde la base de datos local...</p>
+</ng-template>

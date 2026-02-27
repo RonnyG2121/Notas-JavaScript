@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <form action="/edit-task/{{ dbTareas.id }}" method="POST">
+
+        <div>
+            <label for="nombre">Nombre de la tarea:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre de la tarea" value="{{ dbTareas.nombre }}" required>
+            </div>
+            <div>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" placeholder="Ingrese la descripción" value="{{ dbTareas.descripcion }}" required>
+                </div>
+                <div>
+                    <label for="completa">Completada:</label>
+                    <input type="checkbox" id="completa" name="completa" {% if dbTareas.completa %} checked {% endif %}></div>
+
+
+                    <hr>
+                        <div>
+                            <button type="submit">Guardar cambios</button>
+                        </div>
+                    </form>
+                {% endblock %}

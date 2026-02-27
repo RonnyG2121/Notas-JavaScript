@@ -1,0 +1,35 @@
+<div>
+  
+  <button (click)="volver()" class="volver-btn">← Volver a la lista</button>
+  <h3>{{ pelicula?.Titulo }}</h3>
+  <div class="detalle-container">
+    <div class="video-reproductor">
+      <audio controls autoplay [src]="currentPartUrl">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+    <div class="info-container">
+      <p><strong>Año:</strong> {{ pelicula?.anio }}</p>
+      <p><strong>Director:</strong> {{ pelicula?.director }}</p>
+      <p *ngIf="hasMultipleParts()"><strong>Partes:</strong> {{ pelicula?.partes }}</p>
+      <p><strong>Sinopsis:</strong> {{ pelicula?.sinopsis }}</p>
+
+      
+
+      <div *ngIf="hasMultipleParts()">
+        <h5>Partes:</h5>
+        <div class="partes-container">
+          <button 
+            *ngFor="let partNum of getPartsArray()"
+            (click)="selectPart(partNum)"
+            [class.active]="partNum === selectedPart">
+            Parte {{ partNum }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="isLoading">Cargando película...</p>
+<p *ngIf="!isLoading && !pelicula">Película no encontrada.</p>

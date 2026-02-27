@@ -1,0 +1,22 @@
+<div class="container">
+
+
+    <h2>Lista de productos</h2>
+    <div>
+        <button class="btn-primary" (click)="agregarProducto()">Agregar un producto</button>
+    </div>
+
+    @if (listaProductos.length !==0) {
+    
+    @for (elementoP of listaProductos; track elementoP) {
+            <app-producto [producto]="elementoP"></app-producto>
+        }
+    }
+    
+    @else {
+        <p>Sin productos.</p>
+
+    }
+
+
+</div>
